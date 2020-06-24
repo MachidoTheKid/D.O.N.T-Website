@@ -1,9 +1,10 @@
 html {
-    background-image: url("../img/cityscape.jpg");
+    background-image: url("../img/cityscape2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    overflow: hidden;
-    height: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto;
 }
 
 body {
@@ -12,8 +13,6 @@ body {
     padding: 0;
     border: 0;
     font-family: 'Montserrat', sans-serif;
-
-
 
 
 }
@@ -25,7 +24,7 @@ body {
     display: flex;
     align-content: center;
     text-align: center;
-    background-color: rgba(30, 30, 36, 0.8);
+    background-color: rgba(30, 30, 36, 0.849);
 
 }
 
@@ -66,49 +65,58 @@ body {
 
 header {
 
+
     display: flex;
-    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     text-align: center;
-    height: 100%;
-
-
+    padding: 0;
+    margin: 0;
+    height: auto;
 
 }
 
+
 .content {
 
-    width: 100%;
-    margin-top: 30px;
+    max-width: 35%;
     padding: 40px;
+    justify-content: center;
+    align-content: center;
+
 }
 
 .content h1 {
 
-    font-size: 53px;
-    color: white;
-    margin-bottom: 0em;
-    padding: 25px;
+    font-size: 53px auto;
+    padding: 10px;
+    color: #FF5714;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .content p {
 
     color: white;
     background-color: rgba(255, 87, 20, 0.8);
-    padding: 45px;
+    padding: 30px;
+    margin-bottom: 40px;
 
 }
 
 .intro {
 
-    padding: 0px 70px 0px 70px;
-    margin-bottom: 35px;
+    max-width: 35%;
+    min-width: 35%;
+    padding: 40px;
+
 }
 
 #search {
     text-decoration: none;
     color: #FF5714;
     padding: 14px;
-    background-color: #1E1E24;
+    background-color: white;
     border-radius: 15px;
     transition: 0.1s linear;
 }
@@ -119,14 +127,7 @@ header {
     background-color: #FF5714;
 }
 
-.headercontent {
 
-    height: 100%;
-    width: 100%;
-
-}
-
-.covid {}
 
 #footer {
 
@@ -135,9 +136,19 @@ header {
     min-height: 15px;
     height: 30px;
     background-color: #1E1E24;
-    position: absolute;
     bottom: 0;
     align-content: center;
     text-align: center;
     margin-top: 120px;
+}
+
+#myChart {
+
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#numbers {
+
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 50px;
 }
