@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+html, body
+{
+    padding: 0;
+    margin: 0;
+    background: #1E1E24;
+    color: #D8D4F2;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 200;
+    background-image: linear-gradient(rgba(0, 0, 0, .8),rgba(0, 0, 0, .8)),url(/internal-resources/img/cityscape2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+h1, h2, h3, h4, h5
+{
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+section
+{
+    height: 100vh;
+}
+
+/* .active-section
+{
+    display: flex;
+} */
+
+.container
+{
+    width: 85%;
+    margin: auto;
+    padding: 1em 0;
+}
+/*LOGO*/
+.logo, .logo h1
+{
+    display: inline-block;
+    font-family:  'Roboto', sans-serif;
+    letter-spacing: normal;
+    font-weight: 500;
+    left: 1.2rem;
+    position: inherit;
+    cursor: pointer;
+    color: #ffffff;
+    z-index: 2;
+}
+
+/*The overlay navigation menu*/
+.nav-menu
+{
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    background-color: rgba(216, 212, 242, 0.95);
+    overflow-x: hidden;
+    transition: 500ms;
+}
+
+.overlay
+{
+    position: relative;
+    top: 10%;
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    text-align: left;
+}
+
+
+
+.overlay a
+{
+    padding: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+    text-decoration: none;
+    color: #1E1E24;
+    display: block;
+    transition: 500ms;
+}
+
+.overlay a:hover, .overlay a:focus
+{
+    color: #FF5714;
+}   
+
+/*Menu toggle icon*/
+nav
+{
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 4rem;
+    transition: 500ms;
+}
+.scroll
+{
+    background-color: rgb(0, 0, 0, 0.7);
+}
+
+.burger-bars
+{
+    display: inline-block;
+    right: 1.2rem;
+    position: inherit;
+    top: 1rem;
+    cursor: pointer;
+    z-index: 2;
+}
+  
+.bar1, .bar2, .bar3
+{
+    width: 1.5rem;
+    height: 0.1rem;
+    background-color: #D8D4F2;
+    margin: 6px 0;
+    transition: 500ms;
+}
+  
+.change .bar1 
+{
+    -webkit-transform: rotate(-45deg) translate(-0.3rem, 0.2rem) ;
+    transform: rotate(-45deg) translate(-0.3rem, 0.2rem) ;
+    background-color: #1E1E24;
+}
+
+.change .bar2
+{
+    opacity: 0;
+}
+
+.change .bar3 
+{
+    -webkit-transform: rotate(45deg) translate(-0.4rem, -0.35rem) ;
+    transform: rotate(45deg) translate(-0.4rem, -0.35rem) ;
+    background-color: #1E1E24;
+}
+
+
+/*Side Nav*/
+.indicator
+{
+    content: '';
+    display: inline-block;
+    background-color: #D8D4F2;
+    border-radius: 50%;
+    height: .4rem;
+    width: .4rem;
+    opacity: .5;
+    transition: 500ms;
+}
+
+.active-indicator
+{
+    background-color: #FF5714;
+    height: .6rem;
+    width: .6rem;
+    opacity: 1;
+}
+
+.page-indicator
+{
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    right: 2.5%;
+    width: .7em;
+}
