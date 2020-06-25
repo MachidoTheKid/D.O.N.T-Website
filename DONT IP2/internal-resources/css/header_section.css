@@ -26,7 +26,7 @@
     font-size: 3.3rem auto;
     padding: 0.8rem;
     color: #FF5714;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(78, 78, 78, 0.8);
     font-weight: 500;
 }
 
@@ -51,24 +51,24 @@
 {
     color: #FF5714;
     padding: 0.9rem;
-    background-color: white;
+    background-color: #4e4e4e;
     border-radius: 1rem;
     transition: 500ms linear;
 }
 
 #search-btn:hover
 {
-    color: white;
+    color: #ffffff;
     background-color: #FF5714;
 }
 
 #myChart
 {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(78, 78, 78, .7);
 }
 
 #numbers
 {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(78, 78, 78, .7);
     padding: 3.125rem;
 }
