@@ -39,10 +39,12 @@ $(document).ready(function()
     function openNav()
     {
         $('.nav-menu').css("width","30%");
+        $('.overlay').fadeIn(500);
     }
 
     function closeNav()
     {
         $('.nav-menu').removeAttr("style");
+        $('.overlay').fadeOut(100);
     }
 });

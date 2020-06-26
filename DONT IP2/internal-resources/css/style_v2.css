@@ -10,10 +10,18 @@ html, body
     color: #D8D4F2;
     font-family: 'Source Code Pro', monospace;
     font-weight: 200;
+    scrollbar-width: none;
     background-image: linear-gradient(rgba(0, 0, 0, .8),rgba(0, 0, 0, .8)),url(/internal-resources/img/cityscape2.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+}
+
+/* General styling */
+
+body::-webkit-scrollbar
+{
+    display: none;
 }
 
 h1, h2, h3, h4, h5
@@ -30,19 +38,16 @@ a
 
 section
 {
-    height: 100vh;
+    max-height: 100vh;
 }
-
-/* .active-section
-{
-    display: flex;
-} */
 
 .container
 {
-    width: 85%;
+    width: 90%;
     margin: auto;
-    padding: 1em 0;
+    margin-top: 1.5rem;
+    text-align: center;
+    padding: 0.5em;
 }
 /*LOGO*/
 .logo, .logo h1
@@ -75,11 +80,13 @@ section
 .overlay
 {
     position: relative;
+    display: none;
     top: 10%;
-    width: 100%;
+    width: 85%;
     margin-top: 2rem;
-    margin-left: 3rem;
+    margin-left: 2rem;
     text-align: left;
+    padding: 1rem;
 }
 
 
@@ -87,6 +94,7 @@ section
 .overlay a
 {
     padding: 1rem;
+    overflow-wrap: break-word;
     font-weight: 300;
     letter-spacing: 0.3rem;
     text-decoration: none;
@@ -112,7 +120,7 @@ nav
 }
 .scroll
 {
-    background-color: rgb(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .burger-bars
@@ -154,7 +162,7 @@ nav
 }
 
 
-/*Side Nav*/
+/*Page Side Navigation Indicators*/
 .indicator
 {
     content: '';

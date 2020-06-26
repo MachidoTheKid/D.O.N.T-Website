@@ -1,9 +1,11 @@
 $(document).ready(function()
 {
-    $("section").fadeOut(100, function()
+    $("section").fadeOut(50, function()
     {
-        $("#home").fadeIn(500);
+        $("#top").fadeIn(500);
     });
+
+
 
     $(".indicator").click(function()
     {
@@ -23,5 +25,25 @@ $(document).ready(function()
         $("#search-ind").addClass("active-indicator");
 
         $("#search").fadeIn(500);
+    });
+
+    $("#info-btn").click(function()
+    {
+        $("section").hide();
+
+        $(".indicator").removeClass("active-indicator");
+        $("#about-ind").addClass("active-indicator");
+
+        $("#about").fadeIn(500);
+    });
+
+    $("#author-btn").click(function()
+    {
+        $("section").hide();
+
+        $(".indicator").removeClass("active-indicator");
+        $("#author-ind").addClass("active-indicator");
+
+        $("#author").fadeIn(500);
     });
 });

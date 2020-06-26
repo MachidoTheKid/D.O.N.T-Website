@@ -4,12 +4,8 @@
 
 .search-page
 {
-    position: relative;
     text-align: center;
     width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -25%);
 }
 
 .search-bar
@@ -52,6 +48,7 @@
 .more-info
 {
     position: relative;
+    color: #D8D4F2;
     letter-spacing: .3rem;
     bottom: 50%;
     left: 50%;
