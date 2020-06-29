@@ -17,33 +17,33 @@ $(document).ready(function()
         $("#" + partent).fadeIn(500);
     });
 
-    $("#search-btn").click(function()
+    $("#section-2-btn").click(function()
     {
         $("section").hide();
 
         $(".indicator").removeClass("active-indicator");
-        $("#search-ind").addClass("active-indicator");
+        $("#section-2-ind").addClass("active-indicator");
 
-        $("#search").fadeIn(500);
+        $("#section-2").fadeIn(500);
     });
 
-    $("#info-btn").click(function()
+    $("#section-3-btn").click(function()
     {
         $("section").hide();
 
         $(".indicator").removeClass("active-indicator");
-        $("#about-ind").addClass("active-indicator");
+        $("#section-3-ind").addClass("active-indicator");
 
-        $("#about").fadeIn(500);
+        $("#section-3").fadeIn(500);
     });
 
-    $("#author-btn").click(function()
+    $("#section-4-btn").click(function()
     {
         $("section").hide();
 
         $(".indicator").removeClass("active-indicator");
-        $("#author-ind").addClass("active-indicator");
+        $("#section-4-ind").addClass("active-indicator");
 
-        $("#author").fadeIn(500);
+        $("#section-4").fadeIn(500);
     });
 });

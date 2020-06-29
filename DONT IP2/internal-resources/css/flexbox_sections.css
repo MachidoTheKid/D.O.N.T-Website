@@ -46,7 +46,7 @@
 
 }
 
-#search-btn
+#section-2-btn
 {
     color: #FF5714;
     padding: 0.9rem;
@@ -55,7 +55,7 @@
     transition: 500ms linear;
 }
 
-#search-btn:hover
+#section-2-btn:hover
 {
     color: #ffffff;
     background-color: #FF5714;
@@ -68,4 +68,14 @@
     background-color: #383838b3;
     padding: 1rem;
     border-radius: 10rem;
+}
+
+.more-info
+{
+    position: relative;
+    color: #D8D4F2;
+    letter-spacing: .3rem;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%);
 }
