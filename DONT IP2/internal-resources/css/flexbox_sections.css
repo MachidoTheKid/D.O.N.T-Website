@@ -15,7 +15,7 @@
 
 .column-1
 {
-    flex: 40% 0;
+    flex: 45%;
     padding: 0.8rem;
     justify-content: center;
     align-content: center;
@@ -23,7 +23,7 @@
 
 .column-2
 {
-    flex: 0 40%;
+    flex: 45%;
     padding: 0.8rem;
     justify-content: center;
     align-content: center;
