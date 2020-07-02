@@ -1,0 +1,81 @@
+/***************************************************************************/
+/*                        Flexbox Sections Homepage                        */
+/***************************************************************************/
+.header, .about
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    height: auto;
+}
+
+.column-1
+{
+    flex: 45%;
+    padding: 0.8rem;
+    justify-content: center;
+    align-content: center;
+}
+
+.column-2
+{
+    flex: 45%;
+    padding: 0.8rem;
+    justify-content: center;
+    align-content: center;
+}
+
+#top h1
+{
+    color: #FF5714;
+    font-weight: 400;
+}
+
+.paragraph
+{
+    color: white;
+    background-color: rgba(255, 87, 20, 0.2);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    border-radius: 1rem;
+    text-align: left;
+
+}
+
+#section-2-btn
+{
+    color: #FF5714;
+    padding: 0.9rem;
+    background-color: #383838b3;
+    border-radius: 1rem;
+    transition: 500ms linear;
+}
+
+#section-2-btn:hover
+{
+    color: #ffffff;
+    background-color: #FF5714;
+}
+
+.info
+{
+    font-size: 0.8rem;
+    text-align: justify;
+    background-color: #383838b3;
+    padding: 1rem;
+    border-radius: 10rem;
+}
+
+.more-info
+{
+    position: relative;
+    color: #D8D4F2;
+    letter-spacing: .3rem;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}

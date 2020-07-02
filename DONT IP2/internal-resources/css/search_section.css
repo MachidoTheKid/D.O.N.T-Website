@@ -1,0 +1,49 @@
+/***************************************************************************/
+/*                        Search Bar Section Homepage                      */
+/***************************************************************************/
+
+.search-page
+{
+    position: relative;
+    top: 50%;
+    transform: translate(0, 50%);
+    text-align: center;
+    width: 100%;
+}
+
+.search-bar
+{
+    padding: 2rem;
+}
+
+.search-bar input
+{
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+}
+
+.search-bar input[type = text]
+{
+    padding: .8rem 2.5rem .8rem 1.5rem;
+    letter-spacing: 0.1rem;
+    border-radius: 20rem;
+    background-color: #D8D4F2;
+}
+
+.search-icon
+{
+    position: relative;
+    display: inline-block;
+    right: 2.5rem;
+    vertical-align: middle;
+    padding: .6rem;
+    background-color: #FF5714;
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+}
+
+.search-icon a
+{
+    color: #D8D4F2;
+}
