@@ -13,142 +13,143 @@
 </head>
 
 <body>
-    <!-- Logo and Menu Navigation Section -->
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>LOGO</h1>
+        <!-- Logo and Menu Navigation Section -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <h1>LOGO</h1>
+                </div>
+
+                <div class="burger-bars">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </nav>
+
+            <div class="nav-menu">
+                <div class="overlay">
+                    <a href="#top">HOMEPAGE</a>
+                    <a href="#top">GeoJSON</a>
+                    <a href="#top">EARTHQUAKE MAPPER</a>
+                    <a href="#top">WEATHER</a>
+                    <a href="#top">LEARN ABOUT COVID-19</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Header Section -->
+        <section id="top">
+            <div class="container header-page">
+                <div class="container">
+                    <h1>YOUR SAFETY IS OUR #1 PRIORITY</h1>
+                </div>
+
+                <div class="header">
+                    <div class="column-1">
+                        <p class="paragraph">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita corrupti, distinctio
+                            laboriosam<br>
+                            veniam sapiente animi natus libero voluptate nostrum et illo! <br>Laudantium deserunt sequi
+                            tempora
+                            perspiciatis vel, nobis autem incidunt.
+                        </p>
+                    </div>
+
+                    <div class="column-2">
+                        <p id="numbers" class="info">There are currently * number of confirmed cases of COVID-19 around the
+                            world</p>
+                        <p id="quakes" class="info">Did you know that * earthquakes happen around the world every single
+                            day?</p>
+                        <p id="weather" class="info">The weather in your country today is *</p>
+
+                    </div>
+                </div>
+
+                <div class="container">
+                    <a href="#section-2" id="section-2-btn"><b>Begin Search</b></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section id="section-2">
+            <div class="container search-page">
+                <div class="container">
+                    <h2>Where would you fancy going?</h2>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" id="search" name="search" placeholder="Search Country">
+                    <div class="search-icon"><a href=""><i class="fa fa-search"></i></a></div></input>
+                    <div id="dialogue-box"></div>
+                </div>
+
+                <a href="#about">
+                    <div class="more-info" id="section-3-btn">
+                        <p>More Info</p>
+                        <i class="fa fa-angle-double-down" style="font-size: 1.5rem;"></i>
+                    </div>
+                </a>
             </div>
 
-            <div class="burger-bars">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </nav>
+        </section>
 
-        <div class="nav-menu">
-            <div class="overlay">
-                <a href="#top">HOMEPAGE</a>
-                <a href="#top">GeoJSON</a>
-                <a href="#top">EARTHQUAKE MAPPER</a>
-                <a href="#top">WEATHER</a>
-                <a href="#top">LEARN ABOUT COVID-19</a>
+        <!-- Website info Section -->
+        <section id="section-3">
+            <div class="container about-page">
+                <div class="container">
+                    <h2>More about this site</h2>
+                </div>
+
+                <div class="about">
+                    <div class="column-1">
+                        <p id="numbers" class="info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident,
+                            blanditiis!</p>
+                        <p id="quakes" class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, quos?
+                        </p>
+                        <p id="weather" class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, enim
+                            quibusdam?</p>
+                    </div>
+
+                    <div class="column-2">
+                        <p class="paragraph">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita corrupti, distinctio
+                            laboriosam<br>
+                            veniam sapiente animi natus libero voluptate nostrum et illo! <br>Laudantium deserunt sequi
+                            tempora
+                            perspiciatis vel, nobis autem incidunt.
+                        </p>
+                    </div>
+                </div>
+
+
+                <a href="#section-4">
+                    <div class="more-info" id="section-4-btn">
+                        <p>Meet the team</p>
+                        <i class="fa fa-angle-double-down" style="font-size: 1.5rem;"></i>
+                    </div>
+                </a>
             </div>
+        </section>
+
+        <!-- Author Section -->
+        <section id="section-4">
+
+        </section>
+
+        <!-- Page Navigation Indicators -->
+        <div class="page-indicator">
+            <a href="#top"><span id="top-ind" parent="top" class="indicator active-indicator"></span></a>
+            <a href="#section-2"><span id="section-2-ind" parent="section-2" class="indicator"></span></a>
+            <a href="#section-3"><span id="section-3-ind" parent="section-3" class="indicator"></span></a>
+            <a href="#section-4"><span id="section-4-ind" parent="section-4" class="indicator"></span></a>
         </div>
-    </header>
-
-    <!-- Header Section -->
-    <section id="top">
-        <div class="container header-page">
-            <div class="container">
-                <h1>YOUR SAFETY IS OUR #1 PRIORITY</h1>
-            </div>
-
-            <div class="header">
-                <div class="column-1">
-                    <p class="paragraph">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita corrupti, distinctio
-                        laboriosam<br>
-                        veniam sapiente animi natus libero voluptate nostrum et illo! <br>Laudantium deserunt sequi
-                        tempora
-                        perspiciatis vel, nobis autem incidunt.
-                    </p>
-                </div>
-
-                <div class="column-2">
-                    <p id="numbers" class="info">There are currently * number of confirmed cases of COVID-19 around the
-                        world</p>
-                    <p id="quakes" class="info">Did you know that * earthquakes happen around the world every single
-                        day?</p>
-                    <p id="weather" class="info">The weather in your country today is *</p>
-
-                </div>
-            </div>
-
-            <div class="container">
-                <a href="#section-2" id="section-2-btn"><b>Begin Search</b></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Search Section -->
-    <section id="section-2">
-        <div class="container search-page">
-            <div class="container">
-                <h2>Where would you fancy going?</h2>
-            </div>
-
-            <div class="search-bar">
-                <input type="text" name="search" placeholder="Search Country">
-                <div class="search-icon"><a href=""><i class="fa fa-search"></i></a></div></input>
-            </div>
-
-            <a href="#about">
-                <div class="more-info" id="section-3-btn">
-                    <p>More Info</p>
-                    <i class="fa fa-angle-double-down" style="font-size: 1.5rem;"></i>
-                </div>
-            </a>
-        </div>
-
-    </section>
-
-    <!-- Website info Section -->
-    <section id="section-3">
-        <div class="container about-page">
-            <div class="container">
-                <h2>More about this site</h2>
-            </div>
-
-            <div class="about">
-                <div class="column-1">
-                    <p id="numbers" class="info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident,
-                        blanditiis!</p>
-                    <p id="quakes" class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, quos?
-                    </p>
-                    <p id="weather" class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, enim
-                        quibusdam?</p>
-                </div>
-
-                <div class="column-2">
-                    <p class="paragraph">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita corrupti, distinctio
-                        laboriosam<br>
-                        veniam sapiente animi natus libero voluptate nostrum et illo! <br>Laudantium deserunt sequi
-                        tempora
-                        perspiciatis vel, nobis autem incidunt.
-                    </p>
-                </div>
-            </div>
-
-
-            <a href="#section-4">
-                <div class="more-info" id="section-4-btn">
-                    <p>Meet the team</p>
-                    <i class="fa fa-angle-double-down" style="font-size: 1.5rem;"></i>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Author Section -->
-    <section id="section-4">
-
-    </section>
-
-    <!-- Page Navigation Indicators -->
-    <div class="page-indicator">
-        <a href="#top"><span id="top-ind" parent="top" class="indicator active-indicator"></span></a>
-        <a href="#section-2"><span id="section-2-ind" parent="section-2" class="indicator"></span></a>
-        <a href="#section-3"><span id="section-3-ind" parent="section-3" class="indicator"></span></a>
-        <a href="#section-4"><span id="section-4-ind" parent="section-4" class="indicator"></span></a>
-    </div>
 
     <!-- Script files and links -->
 
     <script src="../DONT IP2/external-resources/js/jquery.js"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="../DONT IP2/internal-resources/js/charter.js"></script>
     <script src="../DONT IP2/internal-resources/js/animations.js"></script>

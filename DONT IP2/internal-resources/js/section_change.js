@@ -1,12 +1,12 @@
 $(document).ready(function()
 {
+    //All sections fade out except for the top section
     $("section").fadeOut(50, function()
     {
         $("#top").fadeIn(500);
     });
 
-
-
+    //Side Nav Indicator and subsequent Section change Animation
     $(".indicator").click(function()
     {
         $(".indicator").removeClass("active-indicator");
@@ -17,6 +17,7 @@ $(document).ready(function()
         $("#" + partent).fadeIn(500);
     });
 
+    //Next section Buttons
     $("#section-2-btn").click(function()
     {
         $("section").hide();

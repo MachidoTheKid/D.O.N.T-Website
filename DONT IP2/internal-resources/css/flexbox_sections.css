@@ -39,9 +39,9 @@
 {
     color: white;
     background-color: rgba(255, 87, 20, 0.2);
+    box-shadow: 0 0 .125rem .125rem rgba(255, 87, 20, 0.2);
     padding: 2rem;
     margin-bottom: 2.5rem;
-    border-radius: 1rem;
     text-align: left;
 
 }
@@ -50,8 +50,7 @@
 {
     color: #FF5714;
     padding: 0.9rem;
-    background-color: #383838b3;
-    border-radius: 1rem;
+    background-color: rgba(56, 56, 56, 0.702);
     transition: 500ms linear;
 }
 
@@ -65,17 +64,16 @@
 {
     font-size: 0.8rem;
     text-align: justify;
-    background-color: #383838b3;
+    background-color: rgba(56, 56, 56, 0.702);
+    box-shadow: 0 0 .125rem .125rem rgba(56, 56, 56, 0.702);
     padding: 1rem;
-    border-radius: 10rem;
 }
 
 .more-info
 {
+    text-align: center;
+    margin: auto;
     position: relative;
     color: #D8D4F2;
     letter-spacing: .3rem;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-50%);
 }

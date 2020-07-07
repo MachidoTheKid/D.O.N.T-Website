@@ -29,7 +29,7 @@ $(document).ready(function () {
     });
 
     function openNav() {
-        $('.nav-menu').css("width", "50%");
+        $('.nav-menu').css("width", "70%");
         $('.overlay').fadeIn(500);
     }
 
