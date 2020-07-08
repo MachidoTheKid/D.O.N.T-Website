@@ -36,6 +36,7 @@
     cursor: pointer;
     padding: .3rem;
     text-align: center;
+    text-transform: uppercase;
     background-color: rgb(30, 30, 36);
     box-shadow: 0 0 .125rem .125rem rgba(30, 30, 36, 0.7);
     color: #D8D4F2;

@@ -40,6 +40,7 @@ h2,
 h3,
 h4,
 h5 {
+    text-align: center;
     font-weight: 200;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
@@ -50,7 +51,7 @@ a {
 }
 
 section {
-    max-height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -70,7 +71,7 @@ section {
     letter-spacing: normal;
     font-weight: 500;
     left: 1.2rem;
-    position: inherit;
+    position: fixed;
     cursor: pointer;
     color: #ffffff;
     z-index: 2;
