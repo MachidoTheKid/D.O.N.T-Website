@@ -24,11 +24,11 @@ const searchCountry = async searchText =>{
    outputHtml(matches);
 
    $('body').on('click', '#dialogue-box > div',function()
-{
-    matches = [];
-    matchList.innerHTML = '';
-    $('.search-bar input').val($(this).text().trim()).focus();
-});
+    {
+        matches = [];
+        matchList.innerHTML = '';
+        $('.search-bar input').val($(this).text().trim()).focus();
+    });
 };
 
 //Push results to html
@@ -38,7 +38,7 @@ const outputHtml = matches => {
         const html = matches.map(
             match => `
             <div class="result">
-                <p>${match.name} (${match.code})</p>
+                <p>${match.name}</p>
             </div>
         `).join('');
 
@@ -47,6 +47,27 @@ const outputHtml = matches => {
 }
 
 search.addEventListener('input', () => searchCountry(search.value));
+
+///////////////////////////////////////////////////////////////
+//             SEARCH SECTION                                //
+///////////////////////////////////////////////////////////////
+
+$("#search-btn").on('click', function()
+{
+    const getData = async searched => {
+
+        const response = await fetch('https://api.covid19api.com/summary');
+        const data = await response.json();
+
+        let filtered = data.filter(covidData => {
+            const regex = new RegExp(`^${$("#search").val()}`, 'gi');
+            return covidData.countries.country.match(regex);
+        });
+
+        console.log(filtered);
+    }
+    getData();
+});
 
 
 
@@ -86,7 +107,9 @@ async function getData() {
             //console.log(covidValues);
 
             document.getElementById("numbers").innerHTML = "The world currently has a total of " + "<b style='color: #FF5714'>" + totalConfirmed + "</b>" + " <b>confirmed</b> Covid-19 cases."
+
         })
+
 
 };
 

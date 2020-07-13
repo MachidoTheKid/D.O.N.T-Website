@@ -29,7 +29,7 @@ $(document).ready(function () {
     });
 
     function openNav() {
-        $('.nav-menu').css("width", "70%");
+        overlayToggle(x);
         $('.overlay').fadeIn(500);
     }
 
@@ -37,4 +37,18 @@ $(document).ready(function () {
         $('.nav-menu').removeAttr("style");
         $('.overlay').fadeOut(100);
     }
+
+    function overlayToggle(x)
+    {
+        if(x.matches)
+        {
+            $('.nav-menu').css("width", "70%");
+        }
+        else
+        {
+            $('.nav-menu').css("width", "30%");
+        }
+    }
+
+    let x = window.matchMedia("(max-width: 760px)");
 });
