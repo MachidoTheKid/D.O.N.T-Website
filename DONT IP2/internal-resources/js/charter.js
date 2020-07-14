@@ -59,12 +59,18 @@ $("#search-btn").on('click', function()
         const response = await fetch('https://api.covid19api.com/summary');
         const data = await response.json();
 
-        let filtered = data.filter(covidData => {
-            const regex = new RegExp(`^${$("#search").val()}`, 'gi');
-            return covidData.countries.country.match(regex);
+        let ctryData = data["Countries"];
+
+        let matches = ctryData.filter(country => {
+
+            const name = $('#search').val();
+
+            const regex = new RegExp(`^${name}`, 'gi');
+            return country.Country.match(regex);
         });
 
-        console.log(filtered);
+        console.log(matches);
+        
     }
     getData();
 });
