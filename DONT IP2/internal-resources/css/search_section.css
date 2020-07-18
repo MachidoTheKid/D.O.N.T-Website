@@ -38,7 +38,6 @@
     text-align: center;
     text-transform: uppercase;
     background-color: rgb(30, 30, 36);
-    box-shadow: 0 0 .125rem .125rem rgba(30, 30, 36, 0.7);
     color: #D8D4F2;
     transition: 500ms;
 }
@@ -46,7 +45,6 @@
 .result:hover
 {
     background-color: rgb(70, 70, 76);
-    box-shadow: 0 0 .125rem .125rem rgba(70, 70, 76, 0.7);
 }
 
 .search-bar input
@@ -69,6 +67,7 @@
 .search-icon
 {
     position: relative;
+    cursor: pointer;
     display: inline-block;
     right: 3.2rem;
     vertical-align: middle;

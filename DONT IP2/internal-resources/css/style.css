@@ -11,6 +11,7 @@ body {
     font-family: 'Source Code Pro', monospace;
     font-weight: 200;
     scrollbar-width: none;
+    scroll-behavior: smooth;
     background-image: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url("../img/cityscape2.jpg");
     background-attachment: fixed;
     background-position: center;
@@ -98,7 +99,7 @@ header{
 }
 
 .bg-blur{
-    \position: absolute;
+    position: absolute;
     height: 100%;
     width: 100%;
     filter: blur().5rem;
@@ -150,7 +151,7 @@ nav {
 }
 
 .scroll {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .burger-bars {

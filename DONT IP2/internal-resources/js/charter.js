@@ -14,7 +14,7 @@ const searchCountry = async searchText =>{
    //Get Input matches
    let matches = countries.filter(country => {
        const regex = new RegExp(`^${searchText}`, 'gi');
-       return country.name.match(regex) || country.code.match(regex);
+       return country.name.match(regex) || country.country_code.match(regex);
    });
 
    if(searchText.length === 0){
@@ -23,6 +23,7 @@ const searchCountry = async searchText =>{
    }
    outputHtml(matches);
 
+   //Complete input once user clicks on the country
    $('body').on('click', '#dialogue-box > div',function()
     {
         matches = [];
@@ -38,7 +39,7 @@ const outputHtml = matches => {
         const html = matches.map(
             match => `
             <div class="result">
-                <p>${match.name}</p>
+                <p>${match.name}, <small style = "color: #FF5714">${match.capital}</small></p>
             </div>
         `).join('');
 
@@ -51,31 +52,63 @@ search.addEventListener('input', () => searchCountry(search.value));
 ///////////////////////////////////////////////////////////////
 //             SEARCH SECTION                                //
 ///////////////////////////////////////////////////////////////
+let dataJSON = [];
+
+const getData =  async () => {
+
+    if(dataJSON != [])
+    {
+        dataJSON = [];
+    }
+
+    //Access COVID-19 Data from API
+    const covidResponse = await fetch('https://api.covid19api.com/summary');
+    const covidData = await covidResponse.json();
+
+    let ctryData = covidData["Countries"];
+
+    //Filter through country data to isolate search results
+
+    const nameArray = search.value.toLowerCase().split(",");
+
+    let matches = ctryData.filter(country => {
+
+        const regex = new RegExp(`^${nameArray[0]}`, 'gi');
+        return country.Country.match(regex);
+    });
+
+    //Get location Key
+    const locations = await fetch("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=%09oS152H6tFLAwJDF1RjHnDXIKr56AtTQs&q=" + nameArray[1]);
+    const locInfo = await locations.json();
+
+    let locKey = locInfo[0]['Key']
+
+    //Get 5 day weather forecast
+    const weatherResponse = await fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/"+ locKey +"?apikey=oS152H6tFLAwJDF1RjHnDXIKr56AtTQs");
+    const weatherData = await weatherResponse.json();
+
+    let lat = locInfo[0]['GeoPosition']['Latitude'];
+    let lon = locInfo[0]['GeoPosition']['Longitude'];
+    dataJSON.push(matches, weatherData, {lat, lon})
+}
 
 $("#search-btn").on('click', function()
 {
-    const getData = async searched => {
-
-        const response = await fetch('https://api.covid19api.com/summary');
-        const data = await response.json();
-
-        let ctryData = data["Countries"];
-
-        let matches = ctryData.filter(country => {
-
-            const name = $('#search').val();
-
-            const regex = new RegExp(`^${name}`, 'gi');
-            return country.Country.match(regex);
-        });
-
-        console.log(matches);
-        
-    }
     getData();
+    //initMap();
+    console.log(dataJSON);
 });
 
+function initMap()
+{
+    const mapProp= { center: new google.maps.LatLng(dataJSON[2]['lat'], dataJSON[2]['lon']), zoom: 14 };
+    
+    const map = new google.maps.Map(document.getElementById("map"),mapProp);
 
+    const marker = new google.maps.Marker({position:mapProp.center, animation:google.maps.Animation.BOUNCE});
+      
+    marker.setMap(map); 
+}
 
 ///////////////////////////////////////////////////////////////
 //             COVID-19 DATA SECTION                         //
@@ -85,39 +118,6 @@ const covidValues = [];
 
 //createChart();
 
-getData();
-async function getData() {
-
-    fetch('https://api.covid19api.com/summary')
-        .then(response => response.json())
-        .then(data => {
-
-            //console.log(data);
-
-            var newConfirmed = data['Global']['NewConfirmed'];
-            var newDeaths = data['Global']['NewDeaths'];
-            var newRecovered = data['Global']['NewRecovered'];
-            var totalConfirmed = data['Global']['TotalConfirmed'];
-            var totalDeaths = data['Global']['TotalDeaths'];
-            var totalRecovered = data['Global']['TotalRecovered'];
-
-            //console.log("There are " + newConfirmed + " new cases of Covid-19");
-            //console.log(newDeaths + " new deaths have been confirmed.");
-            //console.log(newRecovered + " have newly recovered");
-            //console.log("The total cases is " + totalConfirmed);
-            //console.log("The total death toll is " + totalDeaths);
-            //console.log("The total amount of revoveries is " + totalRecovered);
-
-            covidValues.push(newConfirmed, newDeaths, newRecovered);
-
-            //console.log(covidValues);
-
-            document.getElementById("numbers").innerHTML = "The world currently has a total of " + "<b style='color: #FF5714'>" + totalConfirmed + "</b>" + " <b>confirmed</b> Covid-19 cases."
-
-        })
-
-
-};
 
 async function createChart() {
 

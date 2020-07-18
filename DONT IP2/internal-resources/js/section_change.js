@@ -1,71 +1,98 @@
 $(document).ready(function()
 {
-    //All sections fade out except for the top section
-    function hideSection(x)
+    let x = window.matchMedia("(max-width: 760px)");
+    let searched = false;
+
+    //Changes to the active indicator and navigates sections with reference to the indicators
+    $(".indicator").on("click", function()
     {
+        $(".indicator").removeClass('active-indicator');
+        $(this).addClass('active-indicator');
+
+        let sn = $(this).attr('parent');
+
         if(!x.matches)
         {
-            $("section").fadeOut(50, function()
-            {
-                $("#top").fadeIn(500);
-            });
+            hideSections(sn);
+        }
+    });
 
-            $(".indicator").fadeIn(500);
-            
-            //Side Nav Indicator and subsequent Section change Animation
-            $(".indicator").click(function()
-            {
-                $(".indicator").removeClass("active-indicator");
-                $(this).addClass("active-indicator");
-                $("section").hide();
-                let partent = $(this).attr("parent");
+    //Changes to the active indicator and navigates sections with reference to the buttons
+    $(".more-info").on('click', function()
+    {
+        let dest = $(this).attr("dest");
 
-                $("#" + partent).fadeIn(500);
-            });
+        if(!x.matches)
+        {
+            hideSections(dest);
+        }
 
-            //Next section Buttons
-            $("#section-2-btn").click(function()
-            {
-                $("section").hide();
+        $(".indicator").removeClass("active-indicator");
+        $(dest + "-ind").addClass("active-indicator");
+    });
 
-                $(".indicator").removeClass("active-indicator");
-                $("#section-2-ind").addClass("active-indicator");
-
-                $("#section-2").fadeIn(500);
-            });
-
-            $("#section-3-btn").click(function()
-            {
-                $("section").hide();
-
-                $(".indicator").removeClass("active-indicator");
-                $("#section-3-ind").addClass("active-indicator");
-
-                $("#section-3").fadeIn(500);
-            });
-
-            $("#section-4-btn").click(function()
-            {
-                $("section").hide();
-
-                $(".indicator").removeClass("active-indicator");
-                $("#section-4-ind").addClass("active-indicator");
-
-                $("#section-4").fadeIn(500);
-            });
+    //Checks the media device width and calls different functions depending on the width
+    checkWidth(x);
+    function checkWidth(x)
+    {
+        if(x.matches && !searched)
+        {
+            $(".indicator").hide();
+            showSections();
+        }
+        else if(x.matches && searched)
+        {
+            $(".indicator").hide();
+        }
+        else if(!x.matches && searched)
+        {
+            $(".indicator").hide();
+            hideSections("#search-results");
         }
         else
         {
-            $("section").fadeIn(500);
-            $(".indicator").fadeOut(500);
+            $(".indicator").show();
+            hideSections("#top");
         }
     }
 
-    let x = window.matchMedia("(max-width: 760px)");
+    function hideSections(sectName)
+    {
+        $("section").fadeOut(10);
+        $(sectName).fadeIn(500);
+    }
 
-    hideSection(x);
+    function showSections()
+    {
+        $("section").fadeIn(500, function()
+        {
+            if(!searched)
+            {
+                $("#search-results").hide();
+            }            
+        });
+    }
 
-    x.addListener(hideSection);
+    $("#search-btn").click(function()
+    {
+        searched = true;
+        hideSections("#search-results");
+        $(".indicator").hide();
+    });
 
+    $("#back-btn").click(function()
+    {
+        searched = false;
+        if(!x.matches)
+        {
+            hideSections("#section-2");
+            $(".indicator").show();
+        }
+        else
+        {
+            showSections()
+        }
+    });
     
+    x.addListener(checkWidth);
 });

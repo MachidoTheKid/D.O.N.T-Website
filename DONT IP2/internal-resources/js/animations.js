@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    let navOpen = false;
+
     //Nav bar background
     $(window).scroll(function () {
         if ($(document).scrollTop() > 50) {
@@ -9,8 +11,8 @@ $(document).ready(function () {
     });
 
     //Animate Menu Icon and opening and closing of menu
-    $('.burger-bars').click(function () {
-        this.classList.toggle("change");
+    $('.burger-bars').click(function() {
+        $(this).toggleClass("change");
 
         openNav();
         $('nav').removeClass("scroll");
@@ -29,26 +31,33 @@ $(document).ready(function () {
     });
 
     function openNav() {
+        navOpen = true;
         overlayToggle(x);
         $('.overlay').fadeIn(500);
     }
 
     function closeNav() {
+        navOpen = false;
         $('.nav-menu').removeAttr("style");
         $('.overlay').fadeOut(100);
     }
 
+    let x = window.matchMedia("(max-width: 760px)");
     function overlayToggle(x)
     {
-        if(x.matches)
+        if(x.matches && navOpen)
         {
             $('.nav-menu').css("width", "70%");
         }
+        else if(!x.matches && navOpen)
+        {
+            $('.nav-menu').css("width", "40%");
+        }
         else
         {
-            $('.nav-menu').css("width", "30%");
+            closeNav();
         }
     }
 
-    let x = window.matchMedia("(max-width: 760px)");
+    x.addListener(overlayToggle);
 });
