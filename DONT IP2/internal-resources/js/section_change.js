@@ -1,3 +1,7 @@
+window.addEventListener('load', function(){
+    $(".loader").fadeOut(500);
+});
+
 $(document).ready(function()
 {
     let x = window.matchMedia("(max-width: 760px)");
@@ -37,21 +41,21 @@ $(document).ready(function()
     {
         if(x.matches && !searched)
         {
-            $(".indicator").hide();
+            $(".indicator").fadeOut(10);
             showSections();
         }
         else if(x.matches && searched)
         {
-            $(".indicator").hide();
+            $(".indicator").fadeOut(10);
         }
         else if(!x.matches && searched)
         {
-            $(".indicator").hide();
+            $(".indicator").fadeOut(10);
             hideSections("#search-results");
         }
         else
         {
-            $(".indicator").show();
+            $(".indicator").fadeIn(10);
             hideSections("#top");
         }
     }
@@ -68,7 +72,7 @@ $(document).ready(function()
         {
             if(!searched)
             {
-                $("#search-results").hide();
+                $("#search-results").fadeOut(10);
             }            
         });
     }
@@ -76,17 +80,17 @@ $(document).ready(function()
     $("#search-btn").click(function()
     {
         searched = true;
+        $(".loader").fadeIn(10);
         hideSections("#search-results");
-        $(".indicator").hide();
+        $(".indicator").fadeOut(10);        
     });
-
     $("#back-btn").click(function()
     {
         searched = false;
         if(!x.matches)
         {
             hideSections("#section-2");
-            $(".indicator").show();
+            $(".indicator").fadeIn(10);
         }
         else
         {
