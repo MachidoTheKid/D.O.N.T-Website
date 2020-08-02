@@ -229,29 +229,14 @@ nav {
 }
 
 /*Page Side Navigation Indicators*/
-.indicator {
-    content: '';
-    display: inline-block;
-    background-color: #D8D4F2;
-    border-radius: 50%;
-    height: .4rem;
-    width: .4rem;
-    opacity: .5;
-    transition: 500ms;
-}
-
-.active-indicator {
-    background-color: #FF5714;
-    height: .6rem;
-    width: .6rem;
-    opacity: 1;
-}
-
 .page-indicator {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     text-align: center;
-    top: 50%;
-    right: 2.5rem;
+    top: 30%;
+    right: 1.5rem;
     width: .7em;
 }
 

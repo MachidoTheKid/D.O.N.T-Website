@@ -17,13 +17,14 @@ const searchCountry = async searchText => {
         return country.name.match(regex) || country.country_code.match(regex);
     });
 
+    //Checks to see if there is input in the input field and clears the drop-down dialogue if not
     if (searchText.length === 0) {
         matches = [];
         matchList.innerHTML = '';
     }
     outputHtml(matches);
 
-    //Complete input once user clicks on the country
+    //Completes input once user clicks on the country
     $('body').on('click', '#dialogue-box > div', function () {
         matches = [];
         matchList.innerHTML = '';
@@ -31,7 +32,7 @@ const searchCountry = async searchText => {
     });
 };
 
-//Push results to html
+//Push results of filtered data to html
 const outputHtml = matches => {
     if (matches.length > 0) {
         const html = matches.map(
@@ -50,11 +51,14 @@ search.addEventListener('input', () => searchCountry(search.value));
 ///////////////////////////////////////////////////////////////
 //             SEARCH SECTION                                //
 ///////////////////////////////////////////////////////////////
+
+//Initialization
 let dataJSON = [];
 let covidResults = []
 
 const getData = async () => {
 
+    //Clears the dataJSON and covidResults arrays so that new data doesnt append over old data
     if (dataJSON != []) {
         dataJSON = [];
     }
@@ -70,8 +74,8 @@ const getData = async () => {
     let ctryData = covidData["Countries"];
 
     //Filter through country data to isolate search results
-
-    const nameArray = search.value.toLowerCase().split(",");
+    
+    const nameArray = search.value.toLowerCase().split(",");//Converts the input value to lowercase for uniformity
 
     let matches = ctryData.filter(country => {
 
@@ -81,13 +85,13 @@ const getData = async () => {
 
 
 
-    //Get location Key
+    //Get location Key of the country that has been searched
     const locations = await fetch("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=%09oS152H6tFLAwJDF1RjHnDXIKr56AtTQs&q=" + nameArray[1]);
     const locInfo = await locations.json();
 
     let locKey = locInfo[0]['Key'];
 
-    //Get 5 day weather forecast
+    //Get 5 day weather forecast from API
     const weatherResponse = await fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locKey + "?apikey=oS152H6tFLAwJDF1RjHnDXIKr56AtTQs&metric=true");
     const weatherData = await weatherResponse.json();
 
@@ -111,6 +115,7 @@ const getData = async () => {
 
     let dayData = [];
 
+    //Accesses and assigns data received from API to different variables
     for (let i = 0; i < 5; i++) {
         let day = dataJSON[1]['DailyForecasts'][i]['Date'];
         let dayDesc = dataJSON[1]['DailyForecasts'][i]['Day']['IconPhrase'];
@@ -133,15 +138,18 @@ const getData = async () => {
 
 }
 
+//Map initialization function
+
+let map;
 async function initMap() {
     await getData();
 
     const mapProp = {
         center: new google.maps.LatLng(dataJSON[2]['latitude'], dataJSON[2]['longitude']),
-        zoom: 14
+        zoom: 5
     };
 
-    const map = new google.maps.Map(document.getElementById("map"), mapProp);
+    map = new google.maps.Map(document.getElementById("map"), mapProp);
 
     const marker = new google.maps.Marker({
         position: mapProp.center,
@@ -149,16 +157,9 @@ async function initMap() {
     });
 
     marker.setMap(map);
-    $(".loader").fadeOut(500);
+
+  $(".loader").fadeOut(500);
 }
-
-$("#search-btn").on('click', function () {
-    getData();
-    createChart();
-    initMap();
-
-});
-
 
 ///////////////////////////////////////////////////////////////
 //             COVID-19 DATA SECTION                         //
@@ -183,11 +184,8 @@ async function createChart() {
                     'rgba(255, 87, 20)',
                     'rgba(255, 87, 20)'
                 ],
-                borderColor: [
 
-
-                ],
-                borderWidth: 1
+                borderWidth: 0
             }]
         },
         options: {
@@ -220,3 +218,9 @@ async function createChart() {
         }
     });
 }
+
+$("#search-btn").on('click', function () {
+    getData();
+    createChart();
+    initMap();
+});

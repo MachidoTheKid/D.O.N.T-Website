@@ -89,3 +89,27 @@
     color: #D8D4F2;
     letter-spacing: .3rem;
 }
+
+.hp-btn{
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: .8rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #FF5714cc;
+    font-size: .8rem;
+    transition: 500ms;
+}
+
+.hp-btn:hover{
+    background-color: #ff5714cc;
+    color: #D8D4F2;
+}
+
+.hp-btn > i{
+    align-self: center;
+}

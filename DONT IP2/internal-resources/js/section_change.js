@@ -1,19 +1,18 @@
+//Overlays the loading animation over the content until all the elements are loaded
 window.addEventListener('load', function(){
     $(".loader").fadeOut(500);
 });
+
 
 $(document).ready(function()
 {
     let x = window.matchMedia("(max-width: 760px)");
     let searched = false;
 
-    //Changes to the active indicator and navigates sections with reference to the indicators
-    $(".indicator").on("click", function()
+    //Navigates sections with reference to the button clicked
+    $(".hp-btn").on("click", function()
     {
-        $(".indicator").removeClass('active-indicator');
-        $(this).addClass('active-indicator');
-
-        let sn = $(this).attr('parent');
+        let sn = $(this).attr('dest');
 
         if(!x.matches)
         {
@@ -21,51 +20,40 @@ $(document).ready(function()
         }
     });
 
-    //Changes to the active indicator and navigates sections with reference to the buttons
-    $(".more-info").on('click', function()
-    {
-        let dest = $(this).attr("dest");
-
-        if(!x.matches)
-        {
-            hideSections(dest);
-        }
-
-        $(".indicator").removeClass("active-indicator");
-        $(dest + "-ind").addClass("active-indicator");
-    });
-
-    //Checks the media device width and calls different functions depending on the width
+    //Checks the media device width and calls different functions depending on the width and
+    //whether or not the user has searched
     checkWidth(x);
     function checkWidth(x)
     {
         if(x.matches && !searched)
         {
-            $(".indicator").fadeOut(10);
+            $(".page-indicator").fadeOut(10);
             showSections();
         }
         else if(x.matches && searched)
         {
-            $(".indicator").fadeOut(10);
+            $(".page-indicator").fadeOut(10);
         }
         else if(!x.matches && searched)
         {
-            $(".indicator").fadeOut(10);
+            $(".page-indicator").fadeOut(10);
             hideSections("#search-results");
         }
         else
         {
-            $(".indicator").fadeIn(10);
+            $(".page-indicator").fadeIn(10);
             hideSections("#top");
         }
     }
 
+    //Hides all  sections then displays the section passed in as a parameter
     function hideSections(sectName)
     {
         $("section").fadeOut(10);
         $(sectName).fadeIn(500);
     }
 
+    //Displays all sections except for the #search-results section
     function showSections()
     {
         $("section").fadeIn(500, function()
@@ -77,20 +65,25 @@ $(document).ready(function()
         });
     }
 
+    //Overlays the loader on the screen as the search results load
+    //hides all sections apart from the the #search-results section
+    //Fades out the side navigation
     $("#search-btn").click(function()
     {
         searched = true;
         $(".loader").fadeIn(10);
         hideSections("#search-results");
-        $(".indicator").fadeOut(10);        
+        $(".page-indicator").fadeOut(10);        
     });
+
+    //Returns the user to the search page from the results page
     $("#back-btn").click(function()
     {
         searched = false;
         if(!x.matches)
         {
             hideSections("#section-2");
-            $(".indicator").fadeIn(10);
+            $(".page-indicator").fadeIn(10);
         }
         else
         {
@@ -98,5 +91,6 @@ $(document).ready(function()
         }
     });
     
+    //Adds event listener to window that fires when the width changes
     x.addListener(checkWidth);
 });
