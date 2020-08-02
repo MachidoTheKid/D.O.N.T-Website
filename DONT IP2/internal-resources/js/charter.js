@@ -146,7 +146,7 @@ async function initMap() {
 
     const mapProp = {
         center: new google.maps.LatLng(dataJSON[2]['latitude'], dataJSON[2]['longitude']),
-        zoom: 5
+        zoom: 4
     };
 
     map = new google.maps.Map(document.getElementById("map"), mapProp);
@@ -158,9 +158,35 @@ async function initMap() {
 
     marker.setMap(map);
 
-  $(".loader").fadeOut(500);
+    // Create a <script> tag and set the USGS URL as the source.
+    var script = document.createElement('script');
+    script.src = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojsonp';
+    document.getElementsByTagName('head')[0].appendChild(script);
+
+    map.data.setStyle(function(feature) {
+        var magnitude = feature.getProperty('mag');
+        return {
+            icon: getCircle(magnitude)
+        };
+    });
+
+    $(".loader").fadeOut(500);
 }
 
+function getCircle(magnitude) {
+    return {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: '#FF5714',
+      fillOpacity: .4,
+      scale: Math.pow(2, magnitude) / 2,
+      strokeColor: 'white',
+      strokeWeight: .5
+    };
+}
+
+function eqfeed_callback(results) {
+map.data.addGeoJson(results);
+}
 ///////////////////////////////////////////////////////////////
 //             COVID-19 DATA SECTION                         //
 ///////////////////////////////////////////////////////////////
