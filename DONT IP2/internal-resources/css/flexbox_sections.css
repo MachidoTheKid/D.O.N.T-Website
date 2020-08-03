@@ -1,8 +1,8 @@
 /***************************************************************************/
 /*                        Flexbox Sections Homepage                        */
 /***************************************************************************/
-.header, .about
-{
+.header,
+.about {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -13,15 +13,13 @@
     height: auto;
 }
 
-.column
-{
+.column {
     flex: 1 0 0;
     padding: 0.8rem;
     align-content: center;
 }
 
-.card-column
-{
+.card-column {
     display: flex;
     flex-direction: row;
     padding: 0.8rem;
@@ -29,14 +27,12 @@
     flex-wrap: wrap;
 }
 
-#top h1
-{
+#top h1 {
     color: #FF5714;
     font-weight: 400;
 }
 
-.orange-card
-{
+.orange-card {
     color: white;
     background-color: rgba(255, 87, 20, 0.2);
     box-shadow: 0 0 .125rem .125rem rgba(255, 87, 20, 0.2);
@@ -45,8 +41,7 @@
 
 }
 
-.grey-card
-{
+.grey-card {
     flex: 1 0 0;
     font-size: 0.8rem;
     text-align: left;
@@ -56,33 +51,28 @@
     margin: .5rem;
 }
 
-#section-2-btn
-{
+#section-2-btn {
     color: #FF5714;
     padding: 0.9rem;
     background-color: rgba(56, 56, 56, 0.702);
     transition: 500ms linear;
 }
 
-#section-2-btn:hover
-{
+#section-2-btn:hover {
     color: #ffffff;
     background-color: #FF5714;
 }
 
-.dp
-{
+.dp {
     border-radius: 50%;
     overflow: hidden;
 }
 
-.dp img
-{
+.dp img {
     width: 100%;
 }
 
-.more-info
-{
+.more-info {
     text-align: center;
     margin: auto;
     position: relative;
@@ -90,7 +80,7 @@
     letter-spacing: .3rem;
 }
 
-.hp-btn{
+.hp-btn {
     width: .8rem;
     height: .8rem;
     border-radius: 50%;
@@ -105,11 +95,27 @@
     transition: 500ms;
 }
 
-.hp-btn:hover{
+.hp-btn:hover {
     background-color: #ff5714cc;
     color: #D8D4F2;
 }
 
-.hp-btn > i{
+.hp-btn>i {
     align-self: center;
+}
+
+#geoDesc {
+
+    background: none;
+    box-shadow: none;
+    text-align: center;
+    color: black;
+
+}
+
+#top .geoTitle {
+
+    color: black;
+    font-size: 2.5rem;
+    border-bottom: 2px #FF5714 dashed;
 }

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;500;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 html,
 body {
     background: #222222;
@@ -15,8 +16,48 @@ body {
     background-size: cover;
 }
 
+/*Extra Info Pages Style*/
+
+
+#geoBody {
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgba(36, 36, 36, 0.8));
+
+}
+
+.animatedIcon {
+
+    background-color: #222222;
+}
+
+
+
+.geoTop {
+
+    min-height: 30vh;
+}
+
+.subtitle {
+
+    color: black;
+}
+
+.links {
+
+    color: #D8D4F2;
+    transition: linear 600ms;
+    background-color: red;
+
+
+}
+
+.links:hover {
+
+    color: #FF5714;
+    font-style: italic;
+}
+
 /* Loading animation */
-.loader{
+.loader {
     position: fixed;
     top: 0;
     left: 0;
@@ -29,7 +70,7 @@ body {
     z-index: 20;
 }
 
-.loader > span{
+.loader>span {
     border-radius: 50%;
     width: .7rem;
     height: .7rem;
@@ -38,28 +79,30 @@ body {
     animation: load infinite ease alternate 500ms;
 }
 
-.loader > span:nth-child(2){
+.loader>span:nth-child(2) {
     animation-delay: 100ms;
 }
-.loader > span:nth-child(3){
+
+.loader>span:nth-child(3) {
     animation-delay: 200ms;
 }
-.loader > span:nth-child(4){
+
+.loader>span:nth-child(4) {
     animation-delay: 300ms;
 }
-.loader > span:nth-child(5){
+
+.loader>span:nth-child(5) {
     animation-delay: 400ms;
 }
 
-@keyframes load{
-    100%{
+@keyframes load {
+    100% {
         transform: scale(0);
     }
 }
 
 /* General styling */
-.bg-blur
-{
+.bg-blur {
     backdrop-filter: blur(0.25rem);
     -webkit-backdrop-filter: blur(0.25rem);
     max-width: 100vw;
@@ -70,8 +113,7 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.b-shadow
-{
+.b-shadow {
     box-shadow: 0.25rem, 0.25rem, 0.05rem #ffffff;
 }
 
@@ -103,7 +145,7 @@ section {
     padding: 0.5em;
 }
 
-header{
+header {
     display: flex;
 }
 
@@ -137,14 +179,14 @@ header{
     transition: 500ms;
 }
 
-.bg-blur{
+.bg-blur {
     position: absolute;
     height: 100%;
     width: 100%;
     filter: blur().5rem;
 }
 
-.nav-menu a{
+.nav-menu a {
     float: none;
 }
 
@@ -241,7 +283,7 @@ nav {
 }
 
 /* Back button */
-#back-btn{
+#back-btn {
     cursor: pointer;
     position: fixed;
     bottom: 2rem;
@@ -259,10 +301,10 @@ nav {
     transition: 500ms;
 }
 
-#back-btn > i{
+#back-btn>i {
     align-self: center;
 }
 
-#back-btn:hover{
+#back-btn:hover {
     opacity: 1;
 }
