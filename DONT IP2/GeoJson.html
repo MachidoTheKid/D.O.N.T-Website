@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/flexbox_sections.css">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/search_section.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>DONT IP2</title>
+</head>
+
+<body id="geoBody">
+    <!-- Logo and Menu Navigation Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <!-- 
+
+                    <h1>LOGO</h1>
+
+                -->
+                <img src="./internal-resources/img/Safety First.png" alt="logo" id="logo">
+            </div>
+
+            <div class="burger-bars">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+
+        <div class="nav-menu">
+            <div class="bg-blur"></div>
+            <div class="overlay">
+                <a href="index.html">HOMEPAGE</a>
+                <a href="#top">GeoJSON</a>
+                <a href="#top">EARTHQUAKE MAPPER</a>
+                <a href="#top">WEATHER</a>
+                <a href="#top">LEARN ABOUT COVID-19</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Section -->
+    <section id="top" class="geoTop">
+        <div class="container header-page">
+            <div class="container">
+                <h1 id="title" class="geoTitle">About GeoJSON</h1>
+            </div>
+
+            <div class="header">
+
+                <div class="column" id="desc">
+                    <div>
+                        <h2 class="subtitle">What Is GeoJSON?</h2>
+                        <p class="orange-card" id="geoDesc">
+
+
+                            GeoJSON is used in order to represent geographical data, based on JSON. <br><br>
+
+                            Typically, it can be used to visualise a variety of different elements.
+                            Namely, a region of space (a Geometry), a spatially bounded entity (a
+                            Feature), or a list
+                            of Features (a FeatureCollection). GeoJSON can be used in conjunction with multiple Geometry
+                            types such as: Point,
+                            LineString, Polygon, MultiPoint, etc...
+                            Features in GeoJSON contain a Geometry object and additional properties, and a
+                            FeatureCollection contains a list of Features.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 
+
+                <div class="column" id="desc1">
+                    <div>
+                        <p id="numbers" class="grey-card">There are currently * number of confirmed cases of COVID-19
+                            around the
+                            world</p>
+                        <p id="quakes" class="grey-card">Did you know that * earthquakes happen around the world every
+                            single
+                            day?</p>
+                        <p id="weather" class="grey-card">The weather in your country today is *</p>
+                    </div>
+
+                </div>
+
+
+               -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section id="section-4" class="geoTop">
+        <div class="container author">
+            <div class="container">
+                <h2 class="subtitle">What Makes Up GeoJSON</h2>
+            </div>
+
+            <div class="author-cards">
+                <div class="card-column">
+                    <div class="grey-card">
+                        <h4>Geometry Object</h4>
+
+                        <div class="dp">
+                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                        </div>
+
+                        <p class="orange-card">
+                            This item represents various points, curves and lines that are found in coordinate space. In
+                            layman's terms, it is essentially the location information. A Geometry Object's "type"
+                            member will always be one of the seven geometry types.
+                        </p>
+                    </div>
+
+                    <div class="grey-card">
+                        <h4>Feature Object</h4>
+
+                        <div class="dp">
+                            <img src="../DONT IP2/external-resources/img/dp-female.png" alt="" srcset="">
+                        </div>
+
+                        <p class="orange-card">
+                            A Feature Obect is essentially something that is bound by space. Feature Objects are ALWAYS
+                            GeoJSON Objects, irrespective of where they may appear in the GeoJSON file. Feature Objects
+                            are typically associated with random data.
+
+                        </p>
+                    </div>
+
+                    <div class="grey-card">
+                        <h4>Feature Collection</h4>
+
+                        <div class="dp">
+                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                        </div>
+
+                        <p class="orange-card">
+                            A FeatureCollection object has a member with the name “features”. The value of “features” is
+                            a JSON array. Each element of the array is a Feature object as defined above. It is possible
+                            for this array to be empty.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website info Section -->
+    <section id="section-3">
+        <div class="container about-page">
+            <div class="container">
+                <h2 class="subtitle">Useful Links</h2>
+            </div>
+
+
+
+
+
+
+            <div class="about">
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/8RPfrhzRw2s" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+
+                <div class="column">
+
+
+
+                    <a href="https://geojson.org/" class="links">
+                        <p id="numbers" class="grey-card" style="text-align: center;">Official GeoJSON Website</p>
+                    </a>
+                    <a href="https://developer.here.com/blog/an-introduction-to-geojson" class="links">
+                        <p id="quakes" class="grey-card" style="text-align: center;">An Introduction To GeoJSON
+                        </p>
+                    </a>
+                    <a href="https://tools.ietf.org/html/rfc7946" class="links">
+                        <p id="weather" class="grey-card" style="text-align: center;">Official GeoJSON Documentation</p>
+                    </a>
+                    <a hrefhttps://en.wikipedia.org/wiki/GeoJSON class="links">
+                        <p id="weather" class="grey-card" style="text-align: center;">GeoJSON According To Wikipedia</p>
+                    </a>
+                    <a href="" class="links">
+                        <p id="weather" class="grey-card" style="text-align: center;">Official GeoJSON Documentation</p>
+                    </a>
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+
+
+    <!-- Script files and links -->
+
+    <script src="./external-resources/js/jquery.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="./internal-resources/js/charter.js"></script>
+    <script src="./internal-resources/js/animations.js"></script>
+
+</body>
+
+</html>
