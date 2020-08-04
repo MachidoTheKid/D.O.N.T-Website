@@ -4,56 +4,13 @@
 
 html,
 body {
-    background: #222222;
-    color: #D8D4F2;
     font-family: 'Source Code Pro', monospace;
     font-weight: 200;
     scrollbar-width: none;
     scroll-behavior: smooth;
-    background-image: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url("../img/cityscape2.jpg");
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-}
-
-/*Extra Info Pages Style*/
-
-
-#geoBody {
-    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgba(36, 36, 36, 0.8));
-
-}
-
-.animatedIcon {
-
-    background-color: #222222;
-}
-
-
-
-.geoTop {
-
-    min-height: 30vh;
-}
-
-.subtitle {
-
-    color: black;
-}
-
-.links {
-
-    color: #D8D4F2;
-    transition: linear 600ms;
-    background-color: red;
-
-
-}
-
-.links:hover {
-
-    color: #FF5714;
-    font-style: italic;
 }
 
 /* Loading animation */
@@ -66,7 +23,6 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-    background-image: linear-gradient(rgba(0, 0, 0, .95), rgba(0, 0, 0, .95));
     z-index: 20;
 }
 
@@ -74,7 +30,6 @@ body {
     border-radius: 50%;
     width: .7rem;
     height: .7rem;
-    background-color: #FF5714;
     align-self: center;
     animation: load infinite ease alternate 500ms;
 }
@@ -113,10 +68,6 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.b-shadow {
-    box-shadow: 0.25rem, 0.25rem, 0.05rem #ffffff;
-}
-
 h1,
 h2,
 h3,
@@ -133,7 +84,7 @@ a {
 }
 
 section {
-    min-height: 100vh;
+    min-height: 90vh;
     overflow: hidden;
 }
 
@@ -152,6 +103,7 @@ header {
 /*LOGO*/
 .logo,
 .logo h1 {
+    height: 100%;
     margin: 0;
     display: inline-block;
     font-family: 'Roboto', sans-serif;
@@ -161,10 +113,8 @@ header {
     top: .5rem;
     position: fixed;
     cursor: pointer;
-    color: #ffffff;
     z-index: 2;
 }
-
 
 /*The overlay navigation menu*/
 .nav-menu {
@@ -174,7 +124,6 @@ header {
     z-index: 1;
     right: 0;
     top: 0;
-    background-color: rgba(30, 30, 36, 0.8);
     overflow-x: hidden;
     transition: 500ms;
 }
@@ -209,14 +158,8 @@ header {
     font-weight: 300;
     letter-spacing: 0.3rem;
     text-decoration: none;
-    color: #D8D4F2;
     display: block;
     transition: 500ms;
-}
-
-.overlay a:hover,
-.overlay a:focus {
-    color: #FF5714;
 }
 
 /*Menu toggle icon*/
@@ -229,10 +172,6 @@ nav {
     transition: 500ms;
 
 
-}
-
-.scroll {
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .burger-bars {
@@ -257,7 +196,6 @@ nav {
 .change .bar1 {
     -webkit-transform: rotate(-45deg) translate(-0.3rem, 0.2rem);
     transform: rotate(-45deg) translate(-0.3rem, 0.2rem);
-    background-color: #D8D4F2;
 }
 
 .change .bar2 {
@@ -267,7 +205,6 @@ nav {
 .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-0.4rem, -0.35rem);
     transform: rotate(45deg) translate(-0.4rem, -0.35rem);
-    background-color: #D8D4F2;
 }
 
 /*Page Side Navigation Indicators*/

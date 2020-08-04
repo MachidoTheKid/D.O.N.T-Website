@@ -159,8 +159,8 @@ async function initMap() {
     marker.setMap(map);
 
     // Create a <script> tag and set the USGS URL as the source.
-    var script = document.createElement('script');
-    script.src = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojsonp';
+    let script = document.createElement('script');
+    script.src = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
     document.getElementsByTagName('head')[0].appendChild(script);
 
     map.data.setStyle(function(feature) {
@@ -169,15 +169,13 @@ async function initMap() {
             icon: getCircle(magnitude)
         };
     });
-
-    $(".loader").fadeOut(500);
 }
 
 function getCircle(magnitude) {
     return {
       path: google.maps.SymbolPath.CIRCLE,
       fillColor: '#FF5714',
-      fillOpacity: .4,
+      fillOpacity: .7,
       scale: Math.pow(2, magnitude) / 2,
       strokeColor: 'white',
       strokeWeight: .5
@@ -248,5 +246,7 @@ async function createChart() {
 $("#search-btn").on('click', function () {
     getData();
     createChart();
-    initMap();
+    initMap().then(function(){
+        $(".loader").fadeOut(500);
+    });
 });

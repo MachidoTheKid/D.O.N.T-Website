@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="internal-resources/css/flexbox_sections.css">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/layout.css">
     <link rel="stylesheet" type="text/css" href="internal-resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/dark_theme.css">
     <link rel="stylesheet" type="text/css" href="internal-resources/css/search_section.css">
     <title>DONT IP2</title>
 </head>
@@ -53,7 +54,12 @@
             </div>
 
             <div class="header">
-
+                <div class="card-container">
+                    <div class="grid-card"></div>
+                    <div class="grid-card"></div>
+                    <div class="grid-card"></div>
+                    <div class="grid-card"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -85,19 +91,19 @@
 
             <div class="about">
                 <div class="column">
-                    <p id="numbers" class="grey-card">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    <p id="numbers" class="card-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         Provident,
                         blanditiis!</p>
-                    <p id="quakes" class="grey-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
+                    <p id="quakes" class="card-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
                         quos?
                     </p>
-                    <p id="weather" class="grey-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
+                    <p id="weather" class="card-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
                         enim
                         quibusdam?</p>
                 </div>
 
                 <div class="column">
-                    <p class="orange-card">
+                    <p class="card-1">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita corrupti, distinctio
                         laboriosam<br>
                         veniam sapiente animi natus libero voluptate nostrum et illo! <br>Laudantium deserunt sequi
@@ -111,34 +117,34 @@
 
     <!-- Author Section -->
     <section id="section-4">
-        <div class="container author">
+        <div class="container">
             <div class="container">
                 <h2>The Lovely Team</h2>
             </div>
 
-            <div class="author-cards">
+            <div>
                 <div class="card-column">
-                    <div class="grey-card">
+                    <div class="card-2">
                         <h4>Dennis</h4>
 
                         <div class="dp">
                             <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
                         </div>
 
-                        <p class="orange-card">
+                        <p class="card-1">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ex ipsa officiis,
                             dignissimos enim facilis quis sapiente adipisci sint? Dolor, commodi eius. Magnam
                         </p>
                     </div>
 
-                    <div class="grey-card">
+                    <div class="card-2">
                         <h4>Oluwakorede</h4>
 
                         <div class="dp">
                             <img src="../DONT IP2/external-resources/img/dp-female.png" alt="" srcset="">
                         </div>
 
-                        <p class="orange-card">
+                        <p class="card-1">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ex ipsa officiis,
                             dignissimos enim facilis quis sapiente adipisci sint? Dolor, commodi eius. Magnam
                         </p>
@@ -146,27 +152,27 @@
                 </div>
 
                 <div class="card-column">
-                    <div class="grey-card">
+                    <div class="card-2">
                         <h4>Nathan</h4>
 
                         <div class="dp">
                             <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
                         </div>
 
-                        <p class="orange-card">
+                        <p class="card-1">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ex ipsa officiis,
                             dignissimos enim facilis quis sapiente adipisci sint? Dolor, commodi eius. Magnam
                         </p>
                     </div>
 
-                    <div class="grey-card">
+                    <div class="card-2">
                         <h4>Timothy</h4>
 
                         <div class="dp">
                             <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
                         </div>
 
-                        <p class="orange-card">
+                        <p class="card-1">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ex ipsa officiis,
                             dignissimos enim facilis quis sapiente adipisci sint? Dolor, commodi eius. Magnam
                         </p>
@@ -198,15 +204,15 @@
 
                     <div class="column">
                         <div>
-                            <p id="numbers" class="grey-card">There are currently * number of confirmed cases of
+                            <p id="numbers" class="card-2">There are currently * number of confirmed cases of
                                 COVID-19
                                 around the
                                 world</p>
-                            <p id="quakes" class="grey-card">Did you know that * earthquakes happen around the world
+                            <p id="quakes" class="card-2">Did you know that * earthquakes happen around the world
                                 every
                                 single
                                 day?</p>
-                            <p id="weather" class="grey-card">The weather in your country today is *</p>
+                            <p id="weather" class="card-2">The weather in your country today is *</p>
                         </div>
                     </div>
 
@@ -221,9 +227,9 @@
                 <h3>THE WEATHER</h3>
 
 
-                <div class="author-cards">
+                <div>
                     <div class="card-column">
-                        <div class="grey-card">
+                        <div class="card-2">
                             <h4 id="weekday1">Monday</h4>
 
 
@@ -233,16 +239,16 @@
 
 
 
-                            <p class="orange-card" id="low1">
+                            <p class="card-1" id="low1">
                                 Low:</p>
 
-                            <p class="orange-card" id="high1">
+                            <p class="card-1" id="high1">
                                 High:</p>
 
                             <p style="text-align: center;" id="weatherDesc1">It's cold!</p>
                         </div>
 
-                        <div class="grey-card">
+                        <div class="card-2">
                             <h4 id="weekday2">Tuesday</h4>
 
                             <div class="dp">
@@ -251,16 +257,16 @@
 
 
 
-                            <p class="orange-card" id="low2">
+                            <p class="card-1" id="low2">
                                 Low:</p>
 
-                            <p class="orange-card" id="high2">
+                            <p class="card-1" id="high2">
                                 High:</p>
 
                             <p style="text-align: center;" id="weatherDesc2">It's cold!</p>
                         </div>
 
-                        <div class="grey-card">
+                        <div class="card-2">
                             <h4 id="weekday3">Wednesday</h4>
 
                             <div class="dp">
@@ -269,16 +275,16 @@
 
 
 
-                            <p class="orange-card" id="low3">
+                            <p class="card-1" id="low3">
                                 Low:</p>
 
-                            <p class="orange-card" id="high3">
+                            <p class="card-1" id="high3">
                                 High:</p>
 
                             <p style="text-align: center;" id="weatherDesc3">It's cold!</p>
                         </div>
 
-                        <div class="grey-card">
+                        <div class="card-2">
                             <h4 id="weekday4">Thursday</h4>
 
                             <div class="dp">
@@ -287,16 +293,16 @@
 
 
 
-                            <p class="orange-card" id="low4">
+                            <p class="card-1" id="low4">
                                 Low:</p>
 
-                            <p class="orange-card" id="high4">
+                            <p class="card-1" id="high4">
                                 High:</p>
 
                             <p style="text-align: center;" id="weatherDesc4">It's cold!</p>
                         </div>
 
-                        <div class="grey-card">
+                        <div class="card-2">
                             <h4 id="weekday5">Friday</h4>
 
 
@@ -306,10 +312,10 @@
 
 
 
-                            <p class="orange-card" id="low5">
+                            <p class="card-1" id="low5">
                                 Low:</p>
 
-                            <p class="orange-card" id="high5">
+                            <p class="card-1" id="high5">
                                 High:</p>
 
                             <p style="text-align: center;" id="weatherDesc5">It's cold!</p>
@@ -328,22 +334,22 @@
 
     <!-- Page Navigation Indicators -->
     <div class="page-indicator">
-        <div class="author-cards">
+        <div>
             <div class="card-column">
-                <div class="hp-btn grey-card" dest="#top">
+                <div class="hp-btn card-2" dest="#top">
                     <i class="fa fa-home"></i>
                 </div>
 
-                <div class="hp-btn grey-card" dest="#section-2">
+                <div class="hp-btn card-2" dest="#section-2">
                     <i class="fa fa-search"></i>
                 </div>
 
-                <div class="hp-btn grey-card" dest="#section-3">
+                <div class="hp-btn card-2" dest="#section-3">
                     <i class="fa fa-info"></i>
                 </div>
 
-                <div class="hp-btn grey-card" dest="#section-4">
-                    <i class="fa fa-user"></i>
+                <div class="hp-btn card-2" dest="#section-4">
+                    <i class="fa fa-users"></i>
                 </div>
             </div>
         </div>
@@ -358,6 +364,7 @@
     <script src="./internal-resources/js/charter.js"></script>
     <script src="./internal-resources/js/animations.js"></script>
     <script src="./internal-resources/js/section_change.js"></script>
+    <script src="./internal-resources/js/user_info.js"></script>
 </body>
 
 </html>

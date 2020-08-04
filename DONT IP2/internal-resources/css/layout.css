@@ -14,7 +14,7 @@
 }
 
 .column {
-    flex: 1 0 0;
+    flex: 1;
     padding: 0.8rem;
     align-content: center;
 }
@@ -24,43 +24,8 @@
     flex-direction: row;
     padding: 0.8rem;
     align-content: center;
+    justify-content: center;
     flex-wrap: wrap;
-}
-
-#top h1 {
-    color: #FF5714;
-    font-weight: 400;
-}
-
-.orange-card {
-    color: white;
-    background-color: rgba(255, 87, 20, 0.2);
-    box-shadow: 0 0 .125rem .125rem rgba(255, 87, 20, 0.2);
-    padding: .5rem;
-    text-align: left;
-
-}
-
-.grey-card {
-    flex: 1 0 0;
-    font-size: 0.8rem;
-    text-align: left;
-    background-color: rgba(56, 56, 56, .7);
-    box-shadow: 0 0 .125rem .125rem rgba(56, 56, 56, 0.702);
-    padding: 1rem;
-    margin: .5rem;
-}
-
-#section-2-btn {
-    color: #FF5714;
-    padding: 0.9rem;
-    background-color: rgba(56, 56, 56, 0.702);
-    transition: 500ms linear;
-}
-
-#section-2-btn:hover {
-    color: #ffffff;
-    background-color: #FF5714;
 }
 
 .dp {
@@ -70,14 +35,6 @@
 
 .dp img {
     width: 100%;
-}
-
-.more-info {
-    text-align: center;
-    margin: auto;
-    position: relative;
-    color: #D8D4F2;
-    letter-spacing: .3rem;
 }
 
 .hp-btn {
@@ -90,14 +47,8 @@
     align-content: center;
     justify-content: center;
     cursor: pointer;
-    color: #FF5714cc;
     font-size: .8rem;
     transition: 500ms;
-}
-
-.hp-btn:hover {
-    background-color: #ff5714cc;
-    color: #D8D4F2;
 }
 
 .hp-btn>i {
@@ -118,4 +69,33 @@
     color: black;
     font-size: 2.5rem;
     border-bottom: 2px #FF5714 dashed;
+}
+
+.card-container{
+    width: 100%;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.card-container:nth-child(1){
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+.card-container:nth-child(2){
+    grid-column: 3/5;
+}
+.card-container:nth-child(3){
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+.card-container:nth-child(4){
+    grid-column: 4/5;
+    grid-row: 2/3;
+}
+
+.grid-card{
+    background-color: #383838b3;
+    margin: .5rem;
 }

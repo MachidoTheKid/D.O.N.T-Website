@@ -33,7 +33,7 @@ $(document).ready(function () {
     function openNav() {
         navOpen = true;
         overlayToggle(x);
-        $('.overlay').fadeIn(500);
+        $('.overlay').fadeIn(1000);
     }
 
     function closeNav() {

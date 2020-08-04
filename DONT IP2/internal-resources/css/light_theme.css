@@ -1,0 +1,104 @@
+html,
+body {
+    background: #D8D4F2;
+    color: #222222;
+    background-image: linear-gradient(rgba(240, 240, 240, .85), rgba(240, 240, 240, .85)), url("../img/cityscape2.jpg");
+}
+
+/* Loading animation */
+.loader {
+    background-image: linear-gradient(rgba(255, 255, 255, .95), rgba(255, 255, 255, .95));
+}
+
+.loader>span {
+    background-color: #FF5714;
+}
+
+.logo,
+.logo h1 {
+    color: #222222;
+}
+
+/*The overlay navigation menu*/
+.nav-menu {
+    background-color: #D8D4F2cc;
+}
+
+.overlay a {
+    color: #222222;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #FF5714;
+}
+
+/*Menu toggle icon*/
+.scroll {
+    background-color: rgba(240, 240, 240, 0.7);
+}
+
+.change .bar1 {
+    background-color: #222222;
+}
+
+.change .bar3 {
+    background-color: #222222;
+}
+
+#top h1 {
+    color: #222222;
+    font-weight: 400;
+}
+
+.btn {
+    color: #383838b3;
+    padding: 0.9rem;
+    background-color: #9c9c9cb3;
+    transition: 500ms;
+}
+
+.btn:hover {
+    color: #ffffff;
+    background-color: #FF5714;
+}
+
+.card-1 {
+    color: #222222;
+    background-color: rgba(255, 87, 20, 0.2);
+    box-shadow: 0 0 .125rem .125rem rgba(255, 87, 20, 0.2);
+    padding: .5rem;
+    text-align: left;
+
+}
+
+.card-2 {
+    flex: 1;
+    font-size: 0.8rem;
+    text-align: left;
+    background-color: rgba(156, 156, 156, .7);
+    box-shadow: 0 0 .125rem .125rem rgba(156, 156, 156, 0.702);
+    padding: 1rem;
+    margin: .5rem;
+}
+
+.hp-btn {
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: .8rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #FF5714cc;
+    background-color: #9c9c9cb3;
+    font-size: .8rem;
+    transition: 500ms;
+}
+
+.hp-btn:hover {
+    background-color: #ff5714cc;
+    color: #D8D4F2;
+}
