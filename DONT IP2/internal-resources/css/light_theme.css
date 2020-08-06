@@ -32,7 +32,7 @@ body {
     border-radius: 2rem;
 }
 
-.overlay a:nth-child(odd){
+.overlay a:nth-child(odd) {
     background-color: #38383880;
     color: #D8D4F2;
 }
@@ -80,6 +80,7 @@ body {
     background-color: rgba(201, 67, 15, 0.4);
     -ms-background-color: rgba(201, 67, 15, 0.4);
     -moz-background-color: rgba(201, 67, 15, 0.4);
+
 }
 
 .card-2 {
@@ -112,32 +113,32 @@ body {
 .grid-card1,
 .grid-card2,
 .grid-card3,
-.grid-card4{
+.grid-card4 {
     background-color: #9c9c9ccc;
     -ms-background-color: #9c9c9ccc;
     -moz-background-color: #9c9c9ccc;
 }
 
-.grid-card1 > .back-face{
+.grid-card1>.back-face {
     background-color: rgba(255, 87, 20, 0.2);
     -ms-background-color: rgba(255, 87, 20, 0.2);
-    -moz-background-color: rgba(255, 87, 20, 0.2); 
+    -moz-background-color: rgba(255, 87, 20, 0.2);
 }
 
-.grid-card2 > .back-face{
+.grid-card2>.back-face {
     background-color: rgba(255, 87, 20, 0.2);
     -ms-background-color: rgba(255, 87, 20, 0.2);
-    -moz-background-color: rgba(255, 87, 20, 0.2); 
+    -moz-background-color: rgba(255, 87, 20, 0.2);
 }
 
-.grid-card3 > .back-face{
+.grid-card3>.back-face {
     background-color: rgba(255, 87, 20, 0.2);
     -ms-background-color: rgba(255, 87, 20, 0.2);
-    -moz-background-color: rgba(255, 87, 20, 0.2); 
+    -moz-background-color: rgba(255, 87, 20, 0.2);
 }
 
-.grid-card4 > .back-face{
+.grid-card4>.back-face {
     background-color: rgba(255, 87, 20, 0.2);
     -ms-background-color: rgba(255, 87, 20, 0.2);
-    -moz-background-color: rgba(255, 87, 20, 0.2); 
+    -moz-background-color: rgba(255, 87, 20, 0.2);
 }

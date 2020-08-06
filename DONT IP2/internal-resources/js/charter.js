@@ -3,8 +3,12 @@
 ///////////////////////////////////////////////////////////////
 
 
+
 const search = document.getElementById('search');
 const matchList = document.getElementById('dialogue-box');
+
+
+
 
 //Search and filter countries
 const searchCountry = async searchText => {
@@ -46,7 +50,7 @@ const outputHtml = matches => {
     }
 }
 
-if(search){
+if (search) {
     search.addEventListener('input', () => searchCountry(search.value));
 }
 
@@ -76,8 +80,8 @@ const getData = async () => {
     let ctryData = covidData["Countries"];
 
     //Filter through country data to isolate search results
-    
-    const nameArray = search.value.toLowerCase().split(",");//Converts the input value to lowercase for uniformity
+
+    const nameArray = search.value.toLowerCase().split(","); //Converts the input value to lowercase for uniformity
 
     let matches = ctryData.filter(country => {
         const regex = new RegExp(`^${nameArray[0]}`, 'gi');
@@ -87,19 +91,22 @@ const getData = async () => {
 
 
     //Get location Key of the country that has been searched
-    const locations = await fetch("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=%09oS152H6tFLAwJDF1RjHnDXIKr56AtTQs&q=" + nameArray[1]);
+    const locations = await fetch("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=zVPYSg54sk5yXACOSMcQtQlqk8Oir6d8&q=" + nameArray[1]);
     const locInfo = await locations.json();
 
     let locKey = locInfo[0]['Key'];
 
     //Get 5 day weather forecast from API
-    const weatherResponse = await fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locKey + "?apikey=oS152H6tFLAwJDF1RjHnDXIKr56AtTQs&metric=true");
+    const weatherResponse = await fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locKey + "?apikey=zVPYSg54sk5yXACOSMcQtQlqk8Oir6d8&metric=true");
     const weatherData = await weatherResponse.json();
 
 
     let lat = locInfo[0]['GeoPosition']['Latitude'];
     let lon = locInfo[0]['GeoPosition']['Longitude'];
-    dataJSON.push(matches, weatherData, {latitude: lat, longitude: lon});
+    dataJSON.push(matches, weatherData, {
+        latitude: lat,
+        longitude: lon
+    });
 
     ////////////////////covid19 Data//////////////////////////////////////////////////////
 
@@ -145,50 +152,100 @@ const getData = async () => {
 //Map initialization function
 
 let map;
+var magSetting = 4.5;
 async function initMap() {
     await getData();
 
-    const mapProp = {
-        center: new google.maps.LatLng(dataJSON[2]['latitude'], dataJSON[2]['longitude']),
-        zoom: 4
-    };
+    var lat = dataJSON[2]['latitude'];
+    var long = dataJSON[2]['longitude'];
 
-    map = new google.maps.Map(document.getElementById("map"), mapProp);
-
-    const marker = new google.maps.Marker({
-        position: mapProp.center,
-        animation: google.maps.Animation.BOUNCE,
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 3,
+        center: new google.maps.LatLng(lat, long),
+        mapTypeId: 'terrain'
     });
 
-    marker.setMap(map);
+    //Filter Button functionality
+
+
+
+
 
     // Create a <script> tag and set the USGS URL as the source.
-    let script = document.createElement('script');
-    script.src = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+    var script = document.createElement('script');
+    // This example uses a local copy of the GeoJSON stored at
+    // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+    script.src =
+        `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/${magSetting}_week.geojsonp`;
     document.getElementsByTagName('head')[0].appendChild(script);
 
-    map.data.setStyle(function(feature) {
-        var magnitude = feature.getProperty('mag');
-        return {
-            icon: getCircle(magnitude)
-        };
-    });
+
+
+
+    window.eqfeed_callback = function (results) {
+
+
+
+
+
+
+
+        for (var i = 0; i < results.features.length; i++) {
+            var largestNum = 0;
+            var coords = results.features[i].geometry.coordinates;
+            var magnitude = results.features[i].properties.mag;
+            var latLng = new google.maps.LatLng(coords[1], coords[0]);
+            var title = results.features[i].properties.title;
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                infoWindow: infoWindow,
+
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    fillColor: '#FF5714',
+                    fillOpacity: .4,
+                    scale: Math.pow(2, magnitude) / 2,
+                    strokeColor: 'white',
+                    strokeWeight: .5
+                },
+
+
+            });
+
+            var contentString = '<div id="content" style="text-align: center; color: black;">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h3 id="firstHeading" class="firstHeading" >' + 'Location: ' + '</h3>' + title +
+                '<h3 id="secondHeading" class="secondHeading">Coordinates: </h3>' + latLng +
+                '<div id="bodyContent">' + '<h3 id="secondHeading" class="secondHeading">Magnitude: </h3>' +
+                magnitude +
+                '</div>';
+
+            var infoWindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+
+
+            google.maps.event.addListener(marker, 'click', function () {
+                this.infoWindow.open(map, this);
+
+            });
+        }
+
+
+
+    }
+
+
+
+    $(".loader").fadeOut(500);
+
+
 }
 
-const getCircle = magnitude =>{
-    return {
-      path: google.maps.SymbolPath.CIRCLE,
-      fillColor: '#FF5714',
-      fillOpacity: .7,
-      scale: Math.pow(2, magnitude) / 2,
-      strokeColor: 'white',
-      strokeWeight: .5
-    };
-}
 
-function eqfeed_callback(results) {
-    map.data.addGeoJson(results)
-}
 ///////////////////////////////////////////////////////////////
 //             COVID-19 DATA SECTION                         //
 ///////////////////////////////////////////////////////////////
@@ -253,7 +310,7 @@ async function createChart() {
 $("#search-btn").on('click', function () {
     getData();
     createChart();
-    initMap().then(function(){
+    initMap().then(function () {
         $(".loader").fadeOut(500);
     });
 });

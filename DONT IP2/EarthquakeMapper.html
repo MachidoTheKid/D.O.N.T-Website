@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/light_theme.css">
+    <script src="./internal-resources/js/maploader.js"></script>
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/search_section.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>DONT IP2</title>
+</head>
+
+<body id="geoBody" class="mapper" onload="initMap()">
+    <!-- Page loader -->
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Logo and Menu Navigation Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>D.O.N.T</h1>
+            </div>
+
+            <div class="burger-bars">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+
+        <div class="nav-menu">
+            <div class="bg-blur"></div>
+            <div class="overlay">
+                <a href="index.html">HOMEPAGE</a>
+                <a href="GeoJson.html">GeoJSON</a>
+                <a href="EarthquakeMapper.html">EARTHQUAKE MAPPER</a>
+                <a href="#top">WEATHER</a>
+                <a href="#top">LEARN ABOUT COVID-19</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Section -->
+    <section id="top" class="geoTop">
+        <div class="container header-page">
+            <div class="container">
+                <h1>Earthquake Mapper</h1>
+            </div>
+
+            <div class="header">
+                <div class="column" id="desc">
+
+                    <div id="geojson-results">
+                        <div id="map" style="width: 100%; height: 500px;">
+
+                        </div>
+
+                        <div class="header">
+
+                            <div class="column">
+                                <div>
+                                    <h2>Map Results</h2>
+                                    <p id="earthquakeNumbers" class="grey-card" id="quakeInfo">There are currently *
+                                        number of
+                                        confirmed cases
+                                        of
+                                        COVID-19
+                                        around the
+                                        world</p>
+                                    <p id="earthquake" class="grey-card">Did you know that * earthquakes happen around
+                                        the world
+                                        every
+                                        single
+                                        day?</p>
+                                    <p id="weather" class="grey-card">The weather in your country today is *</p>
+                                </div>
+                            </div>
+
+                            <div class="column">
+
+
+
+                                <div class="functionality">
+                                    <h2>Map Functionality</h2>
+                                    <a href="">
+                                        <p id="mag45" class="card-2 btn" style="text-align: center;">Filter Magnitude
+                                            4.5</p>
+                                    </a>
+
+                                    <a href="">
+                                        <p id="mag25" class="card-2 btn" style="text-align: center;">Filter Magnitude
+                                            2.5</p>
+                                    </a>
+
+                                    <a href="">
+                                        <p id="mag10" class="card-2 btn" style="text-align: center;">Filter Magnitude
+                                            1.0</p>
+                                    </a>
+
+                                    <a href="">
+                                        <p id="allQuakes" class="card-2 btn" style="text-align: center;">Display All
+                                            Earthquakes
+                                        </p>
+                                    </a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GeoJSON info Section -->
+    <section id="section-2" class="geoTop">
+        <div class="container">
+            <div class="container">
+                <h2 class="subtitle">How It Works</h2>
+            </div>
+
+            <div>
+                <div class="card-column">
+                    <div class="card-2">
+                        <h4>Acquire The Data</h4>
+
+                        <div class="dp">
+                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                        </div>
+
+                        <p class="card-1">
+                            This item represents various points, curves and lines that are found in coordinate space. In
+                            layman's terms, it is essentially the location information. A Geometry Object's "type"
+                            member will always be one of the seven geometry types.
+                        </p>
+                    </div>
+
+                    <div class="card-2">
+                        <h4>Initialise The Map</h4>
+
+                        <div class="dp">
+                            <img src="../DONT IP2/external-resources/img/dp-female.png" alt="" srcset="">
+                        </div>
+
+                        <p class="card-1">
+                            A Feature Obect is essentially something that is bound by space. Feature Objects are ALWAYS
+                            GeoJSON Objects, irrespective of where they may appear in the GeoJSON file. Feature Objects
+                            are typically associated with random data.
+
+                        </p>
+                    </div>
+
+                    <div class="card-2">
+                        <h4>Push Data To The Map</h4>
+
+                        <div class="dp">
+                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                        </div>
+
+                        <p class="card-1">
+                            A FeatureCollection object has a member with the name “features”. The value of “features” is
+                            a JSON array. Each element of the array is a Feature object as defined above. It is possible
+                            for this array to be empty.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usefull links Section -->
+    <section id="section-3">
+        <div class="container about-page">
+            <div class="container">
+                <h2 class="subtitle">Useful Links</h2>
+            </div>
+
+            <div class="about">
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hnkTi6DfVKk" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <div class="column">
+                    <a href="https://developers.google.com/maps/documentation/javascript/earthquakes" class="links"
+                        target="_blank">
+                        <p id="numbers" class="card-2 btn" style="text-align: center;">A Quick Guide On Visualising Data
+                        </p>
+                    </a>
+                    <a href="https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes" class="links"
+                        target="_blank">
+                        <p id="quakes" class="card-2 btn" style="text-align: center;">USGS Official Website
+                        </p>
+                    </a>
+                    <a href="https://earthquake.usgs.gov/fdsnws/event/1/" class="links" target="_blank">
+                        <p id="weather" class="card-2 btn" style="text-align: center;">Official USGS API Documentation
+                        </p>
+                    </a>
+                    <a href="https://en.wikipedia.org/wiki/GeoJSON" class="links" target="_blank">
+                        <p id="weather" class="card-2 btn" style="text-align: center;"> Official USGS GeoJSON Earthquake
+                            Summary Documentation
+                        </p>
+                    </a>
+                    <a href="https://tools.ietf.org/html/rfc7946" class="links" target="_blank">
+                        <p id="weather" class="card-2 btn" style="text-align: center;">Official GeoJSON Documentation
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Page Navigation Indicators -->
+    <div class="page-indicator">
+        <div>
+            <div class="card-column">
+                <div class="hp-btn" dest="#top">
+                    <i class="fa fa-home"></i>
+                </div>
+
+                <div class="hp-btn" dest="#section-2">
+                    <i class="fa fa-info"></i>
+                </div>
+
+                <div class="hp-btn" dest="#section-3">
+                    <i class="fa fa-link"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script files and links -->
+
+    <script src="./external-resources/js/jquery.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiDdQtqRc36itew22wJKasW_gPamhVuY&language=en">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="./internal-resources/js/animations.js"></script>
+    <script src="./internal-resources/js/section_change.js"></script>
+
+</body>
+
+</html>
