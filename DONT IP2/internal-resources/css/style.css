@@ -3,7 +3,10 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 html,
-body {
+body{
+    padding: 0;
+    margin: 0;
+    font-size: 85%;
     font-family: 'Source Code Pro', monospace;
     font-weight: 300;
     scrollbar-width: none;
@@ -97,6 +100,10 @@ header {
     display: flex;
 }
 
+nav{
+    width: 100%;
+}
+
 /*LOGO*/
 .logo,
 .logo h1 {
@@ -129,7 +136,8 @@ header {
     position: absolute;
     height: 100%;
     width: 100%;
-    filter: blur().5rem;
+    filter: blur(.5rem);
+    
 }
 
 .nav-menu a {
@@ -204,7 +212,7 @@ nav {
     transform: rotate(45deg) translate(-0.4rem, -0.35rem);
 }
 
-#top h1 {
+#top h1{
     padding: 2rem;
 }
 
@@ -245,20 +253,4 @@ nav {
 
 #back-btn:hover {
     opacity: 1;
-}
-
-/*Button Functionality style*/
-.functionality p {
-
-    transition: background-color 0.5s ease-out;
-}
-
-.functionality a {
-
-    color: white;
-}
-
-.functionality p:hover {
-
-    background-color: #FF5714;
 }
