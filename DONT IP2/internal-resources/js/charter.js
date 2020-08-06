@@ -100,7 +100,6 @@ const getData = async () => {
     const weatherResponse = await fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locKey + "?apikey=zVPYSg54sk5yXACOSMcQtQlqk8Oir6d8&metric=true");
     const weatherData = await weatherResponse.json();
 
-
     let lat = locInfo[0]['GeoPosition']['Latitude'];
     let lon = locInfo[0]['GeoPosition']['Longitude'];
     dataJSON.push(matches, weatherData, {

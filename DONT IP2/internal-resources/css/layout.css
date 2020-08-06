@@ -37,6 +37,7 @@
 .card-2 {
     flex: 1;
     min-width: 200px;
+    max-width: 250px;
     font-size: 0.8rem;
     text-align: left;
     padding: 1rem;
@@ -156,6 +157,11 @@
 
 .grid-card4 > .back-face{
     transform: rotateY(-180deg);    
+}
+
+.yes, .no{
+    border: none;
+    cursor: pointer;
 }
 
 @media (max-width: 760px){

@@ -8,10 +8,12 @@
     <link rel="stylesheet" type="text/css" href="internal-resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="internal-resources/css/dark_theme.css">
     <link rel="stylesheet" type="text/css" href="internal-resources/css/search_section.css">
+    <script src="./external-resources/js/jquery.js"></script>
+    <script src="./internal-resources/js/user_info.js"></script>
     <title>DONT IP2</title>
 </head>
 
-<body>
+<body onload="startTime()">
     <!-- Page loader -->
     <div class="loader">
         <span></span>
@@ -58,17 +60,19 @@
                     <div class="grid-card1">
                         <div class="front-face">
                             <div>
-                                <p>Currently, there is a total</p>
-                                <h3 style="color: #FF5714;"><strong>---</strong></h3>
-                                <p>confirmed COVID-19 cases in ---</p>
+                                <h4>
+                                    The site will require permission to access your location in order to display the
+                                    COVID-19 data related to your current location
+                                </h4>
                             </div>
                         </div>
                         <div class="back-face">
                             <div>
-                                <small>New Confirmed cases:</small>
-                                <h4>---</h4>
-                                <small>Total deaths:</small>
-                                <h4>---</h4>
+                                <p>
+                                    Grant Location access to the site?
+                                </p>
+                                <button class="btn yes">Yes</button>
+                                <button class="btn no">No</button>
                             </div>
                         </div>
                     </div>
@@ -94,8 +98,19 @@
                     </div>
 
                     <div class="grid-card3">
-                        <div class="front-face">the front</div>
-                        <div class="back-face">the back</div>
+                        <div class="front-face">
+                            <div>
+                                <h1 id="clock">----</h1>
+                            </div>
+                        </div>
+                        <div class="back-face">
+                            <div>
+                                <p>
+                                    Give location access for more info
+                                </p>
+                                <button class="btn yes">Allow</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="grid-card4">
@@ -383,15 +398,12 @@
     </div>
 
     <!-- Script files and links -->
-
-    <script src="./external-resources/js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiDdQtqRc36itew22wJKasW_gPamhVuY&language=en">
     </script>
     <script src="./internal-resources/js/charter.js"></script>
     <script src="./internal-resources/js/animations.js"></script>
     <script src="./internal-resources/js/section_change.js"></script>
-    <script src="./internal-resources/js/user_info.js"></script>
 </body>
 
 </html>
