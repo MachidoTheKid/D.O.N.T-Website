@@ -6,7 +6,7 @@ html,
 body{
     padding: 0;
     margin: 0;
-    font-size: 80%;
+    font-size: 85%;
     font-family: 'Source Code Pro', monospace;
     font-weight: 300;
     scrollbar-width: none;
@@ -136,7 +136,8 @@ nav{
     position: absolute;
     height: 100%;
     width: 100%;
-    filter: blur().5rem;
+    filter: blur(.5rem);
+    
 }
 
 .nav-menu a {
