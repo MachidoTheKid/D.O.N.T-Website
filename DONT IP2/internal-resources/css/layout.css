@@ -28,6 +28,20 @@
     flex-wrap: wrap;
 }
 
+.card-1 {
+    padding: .5rem;
+    text-align: left;
+}
+
+.card-2 {
+    flex: 1;
+    min-width: 300px;
+    font-size: 0.8rem;
+    text-align: left;
+    padding: 1rem;
+    margin: .5rem;
+}
+
 .dp {
     border-radius: 50%;
     overflow: hidden;
@@ -89,9 +103,6 @@
     justify-content: center;
     align-content: center;
     position: relative;
-    background-color: #383838cc;
-    -ms-background-color: #383838cc;
-    -moz-background-color: #383838cc;
     transform-style: preserve-3d;
     margin: .5rem;
     transition: 500ms;
@@ -130,30 +141,18 @@
 }
 
 .grid-card1 > .back-face{
-    background-color: rgba(255, 87, 20, 0.2);
-    -ms-background-color: rgba(255, 87, 20, 0.2);
-    -moz-background-color: rgba(255, 87, 20, 0.2);
     transform: rotateY(180deg);
 }
 
 .grid-card2 > .back-face{
-    background-color: rgba(255, 87, 20, 0.2);
-    -ms-background-color: rgba(255, 87, 20, 0.2);
-    -moz-background-color: rgba(255, 87, 20, 0.2);
     transform: rotateX(180deg);
 }
 
 .grid-card3 > .back-face{
-    background-color: rgba(255, 87, 20, 0.2);
-    -ms-background-color: rgba(255, 87, 20, 0.2);
-    -moz-background-color: rgba(255, 87, 20, 0.2);
     transform: rotateX(-180deg);
 }
 
 .grid-card4 > .back-face{
-    background-color: rgba(255, 87, 20, 0.2);
-    -ms-background-color: rgba(255, 87, 20, 0.2);
-    -moz-background-color: rgba(255, 87, 20, 0.2);
     transform: rotateY(-180deg);    
 }
 

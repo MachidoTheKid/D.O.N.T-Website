@@ -3,7 +3,10 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 html,
-body {
+body{
+    padding: 0;
+    margin: 0;
+    font-size: 80%;
     font-family: 'Source Code Pro', monospace;
     font-weight: 300;
     scrollbar-width: none;
@@ -95,6 +98,10 @@ section {
 
 header {
     display: flex;
+}
+
+nav{
+    width: 100%;
 }
 
 /*LOGO*/
