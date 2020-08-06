@@ -105,10 +105,13 @@ const getData = async () => {
 
     let newConfirmed = dataJSON[0][0]['NewConfirmed'];
     let totalConfirmed = dataJSON[0][0]['TotalConfirmed'];
+    let newDeaths = dataJSON[0][0]['NewDeaths'];
     let totalDeaths = dataJSON[0][0]['TotalDeaths'];
+    let newRecovered = dataJSON[0][0]['NewRecovered'];
+    let totalRecovered = dataJSON[0][0]['TotalRecovered'];
     let countryName = dataJSON[0][0]['Country'];
 
-    covidResults.push(newConfirmed, totalConfirmed, totalDeaths);
+    covidResults.push(newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered);
     document.getElementById('countryTitle').innerHTML = countryName;
     /////////////////////////////////////////////////////////////////////////////////////
 
@@ -184,15 +187,7 @@ const getCircle = magnitude =>{
 }
 
 function eqfeed_callback(results) {
-    for(var i; i < results.features.length; i++){
-
-        const marker = new google.maps.Marker({
-            position: mapProp.center,
-            icon: getCircle(results['features'][i]['geometry']['coordinates'])
-        });
-    
-        marker.setMap(map);
-    }
+    map.data.addGeoJson(results)
 }
 ///////////////////////////////////////////////////////////////
 //             COVID-19 DATA SECTION                         //
@@ -206,13 +201,16 @@ async function createChart() {
 
     let ctx = document.getElementById('chart').getContext('2d');
     let myChart = new Chart(ctx, {
-        type: 'horizontalBar',
+        type: 'bar',
         data: {
-            labels: ['Newly Confirmed', 'Total Confirmed', 'Total Deaths'],
+            labels: ['Newly Confirmed', 'Total Confirmed', 'New Deaths', 'Total Deaths', 'New Recovered', 'Total Recovered'],
             datasets: [{
                 label: 'Number of Covid-19 Cases in ' + dataJSON[0][0]['Country'],
                 data: covidResults,
                 backgroundColor: [
+                    'rgba(255, 87, 20)',
+                    'rgba(255, 87, 20)',
+                    'rgba(255, 87, 20)',
                     'rgba(255, 87, 20)',
                     'rgba(255, 87, 20)',
                     'rgba(255, 87, 20)'
