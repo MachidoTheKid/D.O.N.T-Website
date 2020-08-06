@@ -37,7 +37,7 @@
         <div class="nav-menu">
             <div class="bg-blur"></div>
             <div class="overlay">
-                <a href="#top">HOMEPAGE</a>
+                <a href="index.html">HOMEPAGE</a>
                 <a href="GeoJson.html">GeoJSON</a>
                 <a href="#top">EARTHQUAKE MAPPER</a>
                 <a href="#top">WEATHER</a>
@@ -77,7 +77,8 @@
                         <div class="front-face">
                             <div>
                                 <p>
-                                    Did you know that there have been a total of <strong style="color: #FF5714;">---</strong> earthquakes around the world
+                                    Did you know that there have been a total of <strong
+                                        style="color: #FF5714;">---</strong> earthquakes around the world
                                     within the past week alone!
                                 </p>
                             </div>
@@ -85,7 +86,8 @@
                         <div class="back-face">
                             <div>
                                 <p>
-                                    Out of these at least <strong>---</strong> were concidered servere, with a magnitude of more than 4.5!
+                                    Out of these at least <strong>---</strong> were concidered servere, with a magnitude
+                                    of more than 4.5!
                                 </p>
                             </div>
                         </div>
@@ -236,19 +238,82 @@
                 <div id="map" style="width: 100%; height: 500px;">
 
                 </div>
+
+                <div class="header">
+
+                    <div class="column">
+                        <div>
+                            <h2>Map Results</h2>
+                            <p id="earthquakeNumbers" class="grey-card">There are currently * number of confirmed cases
+                                of
+                                COVID-19
+                                around the
+                                world</p>
+                            <p id="earthquake" class="grey-card">Did you know that * earthquakes happen around the world
+                                every
+                                single
+                                day?</p>
+                            <p id="weather" class="grey-card">The weather in your country today is *</p>
+                        </div>
+                    </div>
+
+                    <div class="column">
+
+
+
+                        <div class="functionality">
+                            <h2>Map Functionality</h2>
+                            <a href="">
+                                <p id="mag45" class="grey-card" style="text-align: center;">Filter Magnitude 4.5</p>
+                            </a>
+
+                            <a href="">
+                                <p id="mag25" class="grey-card" style="text-align: center;">Filter Magnitude 2.5</p>
+                            </a>
+
+                            <a href="">
+                                <p id="mag10" class="grey-card" style="text-align: center;">Filter Magnitude 1.0</p>
+                            </a>
+
+                            <a href="">
+                                <p id="allQuakes" class="grey-card" style="text-align: center;">Display All Earthquakes
+                                </p>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+
             </div>
 
             <div id="covid-results">
                 <h3>COVID-19</h3>
 
-                <div class="container">
+                <div class="header">
+
                     <div class="column">
-                        <canvas id="chart" style="width: 100%; max-height: 30rem;"></canvas>
+                        <div>
+                            <p id="numbers" class="card-2">There are currently * number of confirmed cases of
+                                COVID-19
+                                around the
+                                world</p>
+                            <p id="quakes" class="card-2">Did you know that * earthquakes happen around the world
+                                every
+                                single
+                                day?</p>
+                            <p id="weather" class="card-2">The weather in your country today is *</p>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <canvas id="chart" style="width: 100%; height: 100%;"></canvas>
+
                     </div>
                 </div>
             </div>
 
-            <div id="weather-results">
+            <div id="weather-results" style="text-align: center;">
                 <h3>THE WEATHER</h3>
 
 
@@ -361,19 +426,19 @@
     <div class="page-indicator">
         <div>
             <div class="card-column">
-                <div class="hp-btn" dest="#top">
+                <div class="hp-btn card-2" dest="#top">
                     <i class="fa fa-home"></i>
                 </div>
 
-                <div class="hp-btn" dest="#section-2">
+                <div class="hp-btn card-2" dest="#section-2">
                     <i class="fa fa-search"></i>
                 </div>
 
-                <div class="hp-btn" dest="#section-3">
+                <div class="hp-btn card-2" dest="#section-3">
                     <i class="fa fa-info"></i>
                 </div>
 
-                <div class="hp-btn" dest="#section-4">
+                <div class="hp-btn card-2" dest="#section-4">
                     <i class="fa fa-users"></i>
                 </div>
             </div>
