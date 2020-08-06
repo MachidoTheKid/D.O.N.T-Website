@@ -2,12 +2,15 @@ html,
 body {
     background: #D8D4F2;
     color: #222222;
-    background-image: linear-gradient(rgba(240, 240, 240, .85), rgba(240, 240, 240, .85)), url("../img/cityscape2.jpg");
+    background-image: linear-gradient(rgba(240, 240, 240, .85), rgba(200, 200, 200, .85)), url("../img/cityscape2.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
 /* Loading animation */
 .loader {
-    background-image: linear-gradient(rgba(255, 255, 255, .95), rgba(255, 255, 255, .95));
+    background-image: linear-gradient(rgba(200, 200, 200, .95), rgba(200, 200, 200, .95));
 }
 
 .loader>span {
@@ -25,7 +28,13 @@ body {
 }
 
 .overlay a {
-    color: #222222;
+    color: #383838;
+    border-radius: 2rem;
+}
+
+.overlay a:nth-child(odd){
+    background-color: #38383880;
+    color: #D8D4F2;
 }
 
 .overlay a:hover,
@@ -35,7 +44,7 @@ body {
 
 /*Menu toggle icon*/
 .scroll {
-    background-color: rgba(240, 240, 240, 0.7);
+    background-color: rgba(200, 200, 200, 0.7);
 }
 
 .change .bar1 {
@@ -55,18 +64,19 @@ body {
     color: #383838b3;
     padding: 0.9rem;
     background-color: #9c9c9cb3;
+    font-weight: 400;
     transition: 500ms;
 }
 
 .btn:hover {
     color: #ffffff;
-    background-color: #FF5714;
+    background-color: #FF5714b3;
 }
 
 .card-1 {
     color: #222222;
-    background-color: rgba(255, 87, 20, 0.2);
-    box-shadow: 0 0 .125rem .125rem rgba(255, 87, 20, 0.2);
+    background-color: rgba(201, 67, 15, 0.4);
+    box-shadow: 0 0 .125rem .125rem rgba(201, 67, 15, 0.4);
     padding: .5rem;
     text-align: left;
 

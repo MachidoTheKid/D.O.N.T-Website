@@ -46,7 +46,9 @@ const outputHtml = matches => {
     }
 }
 
-search.addEventListener('input', () => searchCountry(search.value));
+if(search){
+    search.addEventListener('input', () => searchCountry(search.value));
+}
 
 ///////////////////////////////////////////////////////////////
 //             SEARCH SECTION                                //
@@ -78,7 +80,6 @@ const getData = async () => {
     const nameArray = search.value.toLowerCase().split(",");//Converts the input value to lowercase for uniformity
 
     let matches = ctryData.filter(country => {
-
         const regex = new RegExp(`^${nameArray[0]}`, 'gi');
         return country.Country.match(regex);
     });
@@ -153,7 +154,7 @@ async function initMap() {
 
     const marker = new google.maps.Marker({
         position: mapProp.center,
-        animation: google.maps.Animation.BOUNCE
+        animation: google.maps.Animation.BOUNCE,
     });
 
     marker.setMap(map);
@@ -171,7 +172,7 @@ async function initMap() {
     });
 }
 
-function getCircle(magnitude) {
+const getCircle = magnitude =>{
     return {
       path: google.maps.SymbolPath.CIRCLE,
       fillColor: '#FF5714',
@@ -183,7 +184,15 @@ function getCircle(magnitude) {
 }
 
 function eqfeed_callback(results) {
-map.data.addGeoJson(results);
+    for(var i; i < results.features.length; i++){
+
+        const marker = new google.maps.Marker({
+            position: mapProp.center,
+            icon: getCircle(results['features'][i]['geometry']['coordinates'])
+        });
+    
+        marker.setMap(map);
+    }
 }
 ///////////////////////////////////////////////////////////////
 //             COVID-19 DATA SECTION                         //

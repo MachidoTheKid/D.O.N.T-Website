@@ -5,12 +5,9 @@
 html,
 body {
     font-family: 'Source Code Pro', monospace;
-    font-weight: 200;
+    font-weight: 300;
     scrollbar-width: none;
     scroll-behavior: smooth;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
 }
 
 /* Loading animation */
@@ -155,7 +152,7 @@ header {
 .overlay a {
     padding: 1rem;
     overflow-wrap: break-word;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.3rem;
     text-decoration: none;
     display: block;
@@ -205,6 +202,10 @@ nav {
 .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-0.4rem, -0.35rem);
     transform: rotate(45deg) translate(-0.4rem, -0.35rem);
+}
+
+#top h1{
+    padding: 2rem;
 }
 
 /*Page Side Navigation Indicators*/
