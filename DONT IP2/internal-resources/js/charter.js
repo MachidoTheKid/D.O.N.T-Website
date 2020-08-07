@@ -107,6 +107,12 @@ const getData = async () => {
         longitude: lon
     });
 
+    //Get forex data from API
+    const forexResponse = await fetch("http://data.fixer.io/api/latest?access_key=78e3dc8317947167988c08b3cd2d9a24");
+    const forexData = await forexResponse.json();
+
+    console.log(forexData);
+
     ////////////////////covid19 Data//////////////////////////////////////////////////////
 
     let newConfirmed = dataJSON[0][0]['NewConfirmed'];
