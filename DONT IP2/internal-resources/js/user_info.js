@@ -94,6 +94,13 @@ $(document).ready(function(){
             const currentResponse = await fetch("http://dataservice.accuweather.com/currentconditions/v1/" + locKey + "?apikey=zVPYSg54sk5yXACOSMcQtQlqk8Oir6d8");
             const currentData = await currentResponse.json();
 
+            const weatherIcon = currentData[0]['WeatherIcon'];
+
+            const icons = await fetch("internal-resources/js/weather-icons.json");
+            const iconData = await icons.json();
+
+            const icon = iconData[weatherIcon];
+
             document.querySelector(".grid-card1 .front-face").innerHTML = (
                 `<div>
                     <p>Currently, there is a total</p>
@@ -110,10 +117,10 @@ $(document).ready(function(){
                 </div>`
             );
             document.querySelector(".grid-card3 .front-face").innerHTML = (
-                `<div>
-                    <p>Current Condition</p>
-                    <p style="color: #FF5714;">${currentData[0]['WeatherText']}</p>
-                </div>`
+                `<div class="dp">
+                    <img src="${icon}" class="w_icon"></img>
+                </div>
+                <p style="color: #FF5714;">${currentData[0]['WeatherText']}</p>`
             );
             
             document.querySelector(".grid-card3 .back-face").innerHTML =(

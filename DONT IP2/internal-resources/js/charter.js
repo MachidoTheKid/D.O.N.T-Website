@@ -108,7 +108,7 @@ const getData = async () => {
     });
 
     //Get forex data from API
-    const forexResponse = await fetch("http://data.fixer.io/api/latest?access_key=78e3dc8317947167988c08b3cd2d9a24");
+    const forexResponse = await fetch("http://data.fixer.io/api/latest?access_key=78e3dc8317947167988c08b3cd2d9a24&symbols=GBP,USD");
     const forexData = await forexResponse.json();
 
     console.log(forexData);
@@ -135,11 +135,17 @@ const getData = async () => {
     for (let i = 0; i < 5; i++) {
         let day = dataJSON[1]['DailyForecasts'][i]['Date'];
         let dayDesc = dataJSON[1]['DailyForecasts'][i]['Day']['IconPhrase'];
+        let dayIcon = dataJSON[1]['DailyForecasts'][i]['Day']['Icon'];
         let dayLow = dataJSON[1]['DailyForecasts'][i]['Temperature']['Minimum']['Value'];
         let dayHigh = dataJSON[1]['DailyForecasts'][i]['Temperature']['Maximum']['Value'];
         let dayDate = new Date(day);
 
-        dayData.push([dayDate.toUTCString().substr(0, 3), dayDesc, dayLow, dayHigh]);
+        const icons = await fetch("internal-resources/js/weather-icons.json");
+        const iconData = await icons.json();
+
+        const icon = iconData[dayIcon];
+
+        dayData.push([dayDate.toUTCString().substr(0, 3), dayDesc, icon, dayLow, dayHigh]);
     }
     //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -147,8 +153,9 @@ const getData = async () => {
     for (let i = 0; i < 5; i++) {
         document.getElementById('weekday' + (i + 1)).innerHTML = dayData[i][0];
         document.getElementById('weatherDesc' + (i + 1)).innerHTML = dayData[i][1];
-        document.getElementById('low' + (i + 1)).innerHTML = "Low: " + dayData[i][2] + "C";
-        document.getElementById('high' + (i + 1)).innerHTML = "High: " + dayData[i][3] + "C";
+        document.getElementById('icon' + (i + 1)).innerHTML = (`<img src="${dayData[i][2]}" class="w_icon"></img>`);
+        document.getElementById('low' + (i + 1)).innerHTML = "Low: " + dayData[i][3] + "C";
+        document.getElementById('high' + (i + 1)).innerHTML = "High: " + dayData[i][4] + "C";
     }
 
 

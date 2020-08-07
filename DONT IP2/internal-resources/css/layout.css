@@ -45,8 +45,15 @@
 }
 
 .dp {
-    border-radius: 50%;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.w_icon{
+    max-width: 100px;
+    align-self: center;
+    justify-self: center;
 }
 
 .dp img {
