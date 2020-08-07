@@ -60,7 +60,7 @@ $(document).ready(function(){
         document.querySelector(".grid-card2 .back-face").innerHTML = (
             `<div>
                 <p>
-                    Out of these at least <strong>${x[2][1].length}</strong> were concidered servere, with a magnitude of more than 4.5!
+                    Out of these at least <strong>${x[2][1].length}</strong> were considered servere, with a magnitude of more than 4.5!
                 </p>
             </div>
             `

@@ -173,15 +173,18 @@ async function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
+        backgroundColor: "#383838b3",
         center: new google.maps.LatLng(lat, long),
-        mapTypeId: 'terrain'
+        mapTypeId: 'terrain',
+        style: "cc947975130c4d08"
     });
 
-    //Filter Button functionality
+    let mainMarker = new google.maps.Marker({
+        position: {lat:lat, lng:long},
+        map: map
+    });
 
-
-
-
+    mainMarker.setAnimation(google.maps.Animation.BOUNCE);
 
     // Create a <script> tag and set the USGS URL as the source.
     var script = document.createElement('script');
@@ -191,24 +194,25 @@ async function initMap() {
         `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/${magSetting}_week.geojsonp`;
     document.getElementsByTagName('head')[0].appendChild(script);
 
-
-
-
     window.eqfeed_callback = function (results) {
+        for (let i = 0; i < results.features.length; i++) {
+            let largestNum = 0;
+            let coords = results.features[i].geometry.coordinates;
+            let magnitude = results.features[i].properties.mag;
+            let latLng = new google.maps.LatLng(coords[1], coords[0]);
+            let title = results.features[i].properties.title;
+            let contentString = '<div class="card-2" style="text-align: center">' +
+                '<h3>' + 'Location: ' + '</h3>' + title +
+                '<h3>Coordinates: </h3>' + latLng +
+                '<div>' + 
+                    '<h3 >Magnitude: </h3>' + magnitude +
+                '</div>';
 
+            let infoWindow = new google.maps.InfoWindow({
+                content: contentString
+            });
 
-
-
-
-
-
-        for (var i = 0; i < results.features.length; i++) {
-            var largestNum = 0;
-            var coords = results.features[i].geometry.coordinates;
-            var magnitude = results.features[i].properties.mag;
-            var latLng = new google.maps.LatLng(coords[1], coords[0]);
-            var title = results.features[i].properties.title;
-            var marker = new google.maps.Marker({
+            let marker = new google.maps.Marker({
                 position: latLng,
                 map: map,
                 infoWindow: infoWindow,
@@ -221,28 +225,10 @@ async function initMap() {
                     strokeColor: 'white',
                     strokeWeight: .5
                 },
-
-
             });
-
-            var contentString = '<div id="content" style="text-align: center; color: black;">' +
-                '<div id="siteNotice">' +
-                '</div>' +
-                '<h3 id="firstHeading" class="firstHeading" >' + 'Location: ' + '</h3>' + title +
-                '<h3 id="secondHeading" class="secondHeading">Coordinates: </h3>' + latLng +
-                '<div id="bodyContent">' + '<h3 id="secondHeading" class="secondHeading">Magnitude: </h3>' +
-                magnitude +
-                '</div>';
-
-            var infoWindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-
-
 
             google.maps.event.addListener(marker, 'click', function () {
                 this.infoWindow.open(map, this);
-
             });
         }
 
