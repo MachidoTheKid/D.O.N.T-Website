@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/dark_theme.css" id="mode">
+    <link rel="stylesheet" type="text/css" href="internal-resources/css/search_section.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>DONT IP2</title>
+</head>
+
+<body id="geoBody" class="mapper">
+    <!-- Page loader -->
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Logo and Menu Navigation Section -->
+    <header>
+        <script src="./internal-resources/js/theme.js"></script>
+        <nav>
+            <div class="logo">
+                <h1>D.O.N.T</h1>
+            </div>
+
+            <div class="burger-bars">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+
+        <div class="nav-menu">
+            <div class="bg-blur"></div>
+            <div class="overlay">
+                <a href="index.html">HOMEPAGE</a>
+                <a href="GeoJson.html">GeoJSON</a>
+                <a href="EarthquakeMapper.html">EARTHQUAKE MAPPER</a>
+                <a href="Weather.html">WEATHER</a>
+                <a href="#top">LEARN ABOUT COVID-19</a>
+                <a href="#top" id="switcher" onclick="switchTheme()">SWITCH THEME</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Section -->
+    <section id="top" class="geoTop">
+        <div class="container header-page">
+            <div class="container">
+                <h1>Learn About COVID-19</h1>
+            </div>
+
+            <div class="header">
+                <div class="column">
+                    <div>
+                        <p class="card-1">
+                            The COVID-19 API is a free to access data source created by Kyle Redelinghuys. It currently
+                            collates all information on the current state of the COVID-19 Pandemic across each country
+                            across the globe.<br><br>
+
+                            All data collected by the COVID-19 API is sourced from John Hopkins CSSE. Currently,
+                            although the API is free to use, users are limited to a certain amount of calls per day.
+                            Exceeding the call limit will result in the user being rate limited. In other words, users
+                            won't be able to make any more requests to the api for a certain amount of time. In order to
+                            avoid this, it is possible to subscribe to the API service. Each subscription package comes
+                            with certain perks. The most basic perk is the removal of the rate limit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GeoJSON info Section -->
+    <section id="section-2" class="geoTop">
+        <div class="container">
+            <div class="container">
+                <h2 class="subtitle">How It Works</h2>
+            </div>
+
+            <div>
+                <div class="card-column">
+                    <div class="card-2">
+                        <h4>Acquire The Data</h4>
+
+                        <div class="dp">
+                            <img src="./external-resources/img/earthquake.svg" alt="" srcset="">
+                        </div>
+
+                        <p class="card-1">
+                            All the data for the earthquakes is gathered from the USGS (United States Geological Survey)
+                            website. The API allows the user to gather data on earthquakes based on time and magnitude.
+                            Links are provided to each GeoJSON file, which are each dedicated to a specific minimum
+                            magnitude and timeline.
+                        </p>
+                    </div>
+
+                    <div class="card-2">
+                        <h4>Initialise The Map</h4>
+
+                        <div class="dp">
+                            <img src="./external-resources/img/map.svg" alt="" srcset="">
+                        </div>
+
+                        <p class="card-1">
+                            The data is visualised with the help of a Google Map provided by the Google Maps API. The
+                            map API pulls on the data provided by the USGS API. Using the Google Maps API, developers
+                            can create their very own Google Map and customise it to their will.
+                        </p>
+                    </div>
+
+                    <div class="card-2">
+                        <h4>Push Data To The Map</h4>
+
+                        <div class="dp">
+                            <img src="./external-resources/img/data.svg" alt="" srcset="">
+                        </div>
+
+                        <p class="card-1">
+                            The data provided by the USGS API can be visualised with the help of the Google Maps API.
+                            The map's markers can then be customized in order to reflect the clae and magnitude of the
+                            earthquakes.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usefull links Section -->
+    <section id="section-3">
+        <div class="container about-page">
+            <div class="container">
+                <h2 class="subtitle">Useful Links</h2>
+            </div>
+
+            <div class="about">
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/bXoNcBaxfVs" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <div class="column">
+                    <a href="https://covid19api.com/" class="links" target="_blank">
+                        <p id="numbers" class="card-2 btn" style="text-align: center; overflow: hidden;">Official
+                            COVID-19 API Website
+                        </p>
+                    </a>
+                    <a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest" class="links"
+                        target="_blank">
+                        <p id="quakes" class="card-2 btn" style="text-align: center;">Official COVID-19 API
+                            Documentation
+                        </p>
+                    </a>
+                    <a href="https://covid-19-apis.postman.com/" class="links" target="_blank">
+                        <p id="weather" class="card-2 btn" style="text-align: center;">Postman COVID-19 API Resource
+                            Center</p>
+                    </a>
+                    <a href="https://api.covid19api.com/summary" class="links" target="_blank">
+                        <p id="weather" class="card-2 btn" style="text-align: center;">COVID-19 API Data Summary
+                        </p>
+                    </a>
+                    <a href="https://tools.ietf.org/html/rfc7946" class="links" target="_blank">
+                        <p id="weather" class="card-2 btn" style="text-align: center;">Official GeoJSON Documentation
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Page Navigation Indicators -->
+    <div class="page-indicator">
+        <div>
+            <div class="card-column">
+                <div class="hp-btn" dest="#top">
+                    <i class="fa fa-home"></i>
+                </div>
+
+                <div class="hp-btn" dest="#section-2">
+                    <i class="fa fa-info"></i>
+                </div>
+
+                <div class="hp-btn" dest="#section-3">
+                    <i class="fa fa-link"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="back-btn" dest="#" onclick="switchTheme()">
+        <i class="fa fa-chevron-left"></i>
+    </div>
+
+    <!-- Script files and links -->
+
+    <script src="./external-resources/js/jquery.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiDdQtqRc36itew22wJKasW_gPamhVuY&language=en">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="./internal-resources/js/animations.js"></script>
+    <script src="./internal-resources/js/section_change.js"></script>
+
+</body>
+
+</html>
