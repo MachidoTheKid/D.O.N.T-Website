@@ -110,10 +110,10 @@ $(document).ready(function(){
             );
             document.querySelector(".grid-card1 .back-face").innerHTML =(
                 `<div>
-                    <small>New Confirmed cases:</small>
-                    <h4 style="margin: .8rem;">${matches[0]['NewConfirmed']}</h4>
-                    <small>Total deaths:</small>
-                    <h4 style="margin: .8rem;">${matches[0]['TotalDeaths']}</h4>
+                    <p>New Confirmed cases:</p>
+                    <h3 style="margin: .8rem;">${matches[0]['NewConfirmed']}</h3>
+                    <p>Total deaths:</p>
+                    <h3 style="margin: .8rem;">${matches[0]['TotalDeaths']}</h3>
                 </div>`
             );
             document.querySelector(".grid-card3 .front-face").innerHTML = (

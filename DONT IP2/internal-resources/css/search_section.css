@@ -4,6 +4,7 @@
 
 .search-page
 {
+    display: block;
     position: relative;
     text-align: center;
     width: 100%;
@@ -11,9 +12,10 @@
 
 .search-bar
 {
-    margin: auto;
-    
-    height: 15rem;
+    width: auto;
+    display: block;
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
 }
 
@@ -21,7 +23,7 @@
 {
     margin: auto;
     max-height: calc(4.85rem * 3);
-    width: 40%;
+    width: 55%;
     overflow-y: scroll;
 }
 
@@ -52,12 +54,14 @@
     font-family: 'Source Code Pro', monospace;
     text-transform: uppercase;
     outline: none;
+    justify-self: center;
+    align-self: center;
 }
 
 .search-bar input[type = text]
 {
-    width: 40%;
-    padding: 1rem 3.5rem 1rem 3.5rem;
+    width: 50%;
+    padding: 1rem 3.5rem;
     letter-spacing: 0.25rem;
     border: none;
     background: #1E1E24;

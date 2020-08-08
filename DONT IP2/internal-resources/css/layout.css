@@ -20,7 +20,7 @@
 }
 
 .card-column {
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     padding: 0.8rem;
     align-content: center;
@@ -36,6 +36,7 @@
 
 .card-2 {
     flex: 1;
+    align-self: center;
     min-width: 200px;
     max-width: 250px;
     font-size: 0.8rem;

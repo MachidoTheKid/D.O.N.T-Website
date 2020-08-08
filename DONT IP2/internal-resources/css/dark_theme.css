@@ -1,5 +1,6 @@
 html,
 body {
+    font-weight: 300;
     background: #222222;
     color: #D8D4F2;
     background-image: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url("../img/cityscape2.jpg");
@@ -138,6 +139,15 @@ body {
     color: #D8D4F2;
     -ms-color: #D8D4F2;
     -moz-color: #D8D4F2;
+}
+
+.br-btn{
+    color: #383838;
+    -ms-color: #383838;
+    -moz-color: #383838;
+    background-color: #D8D4F2;
+    -ms-background-color: #D8D4F2;
+    -moz-background-color: #D8D4F2;
 }
 
 .grid-card1,

@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="internal-resources/css/layout.css">
-    <link rel="stylesheet" type="text/css" href="internal-resources/css/style.css">
-    <link rel="stylesheet" type="text/css" href="internal-resources/css/dark_theme.css" id="mode">
-    <link rel="stylesheet" type="text/css" href="internal-resources/css/search_section.css">
+    <link rel="stylesheet" type="text/css" href="./internal-resources/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="./internal-resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./internal-resources/css/dark_theme.css" id="mode">
+    <link rel="stylesheet" type="text/css" href="./internal-resources/css/search_section.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-
+    <script src="./internal-resources/js/theme.js"></script>
     <title>DONT IP2</title>
 </head>
 
@@ -25,7 +25,6 @@
 
     <!-- Logo and Menu Navigation Section -->
     <header>
-        <script src="./internal-resources/js/theme.js"></script>
         <nav>
             <div class="logo">
                 <h1>D.O.N.T</h1>
@@ -46,7 +45,6 @@
                 <a href="EarthquakeMapper.html">EARTHQUAKE MAPPER</a>
                 <a href="Weather.html">WEATHER</a>
                 <a href="#top">LEARN ABOUT COVID-19</a>
-                <a href="#top" id="switcher" onclick="switchTheme()">SWITCH THEME</a>
             </div>
         </div>
     </header>
@@ -199,8 +197,8 @@
         </div>
     </div>
 
-    <div id="back-btn" dest="#" onclick="switchTheme()">
-        <i class="fa fa-chevron-left"></i>
+    <div class="br-btn" onclick="switchTheme()">
+        <i id="themeIcon" class="fa fa-sun-o"></i>
     </div>
 
     <!-- Script files and links -->

@@ -8,7 +8,6 @@ body{
     margin: 0;
     font-size: 85%;
     font-family: 'Source Code Pro', monospace;
-    font-weight: 300;
     scrollbar-width: none;
     scroll-behavior: smooth;
 }
@@ -228,29 +227,32 @@ nav {
     width: .7em;
 }
 
-/* Back button */
-#back-btn {
+/* Back button and theme switch button*/
+.br-btn {
     cursor: pointer;
     position: fixed;
     bottom: 2rem;
-    right: 2rem;
-    color: #FF5714;
+    right: 1rem;
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: #222222;
-    width: 3rem;
-    height: 3rem;
+    width: .8rem;
+    height: .8rem;
+    padding: 1rem;
     border-radius: 50%;
     opacity: .5;
     transition: 500ms;
 }
 
-#back-btn>i {
+.br-btn>i {
     align-self: center;
 }
 
-#back-btn:hover {
+.br-btn:hover {
     opacity: 1;
+}
+
+#back-btn{
+    bottom: 6rem;
 }
