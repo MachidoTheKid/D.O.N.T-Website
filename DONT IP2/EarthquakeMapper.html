@@ -44,7 +44,7 @@
                 <a href="index.html">HOMEPAGE</a>
                 <a href="GeoJson.html">GeoJSON</a>
                 <a href="EarthquakeMapper.html">EARTHQUAKE MAPPER</a>
-                <a href="#top">WEATHER</a>
+                <a href="Weather.html">WEATHER</a>
                 <a href="#top">LEARN ABOUT COVID-19</a>
             </div>
         </div>
@@ -52,18 +52,19 @@
 
     <!-- Header Section -->
     <section id="top" class="geoTop">
-        <div class="header-page">
+        <div class="container header-page">
             <div class="container">
                 <h1>Earthquake Mapper</h1>
             </div>
 
-            <div id="map" style="width: 100%; height: 500px;">
+            <div class="header">
+                <div class="column" id="desc">
 
-            </div>
+                    <div id="geojson-results">
+                        <div id="map" style="width: 100%; height: 500px;">
 
-            <div class="header container">
-                <div class="column">
-                    <div>
+                        </div>
+
                         <div class="header">
 
                             <div class="column">
@@ -137,13 +138,14 @@
                         <h4>Acquire The Data</h4>
 
                         <div class="dp">
-                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                            <img src="./external-resources/img/earthquake.svg" alt="" srcset="">
                         </div>
 
                         <p class="card-1">
-                            This item represents various points, curves and lines that are found in coordinate space. In
-                            layman's terms, it is essentially the location information. A Geometry Object's "type"
-                            member will always be one of the seven geometry types.
+                            All the data for the earthquakes is gathered from the USGS (United States Geological Survey)
+                            website. The API allows the user to gather data on earthquakes based on time and magnitude.
+                            Links are provided to each GeoJSON file, which are each dedicated to a specific minimum
+                            magnitude and timeline.
                         </p>
                     </div>
 
@@ -151,14 +153,13 @@
                         <h4>Initialise The Map</h4>
 
                         <div class="dp">
-                            <img src="../DONT IP2/external-resources/img/dp-female.png" alt="" srcset="">
+                            <img src="./external-resources/img/map.svg" alt="" srcset="">
                         </div>
 
                         <p class="card-1">
-                            A Feature Obect is essentially something that is bound by space. Feature Objects are ALWAYS
-                            GeoJSON Objects, irrespective of where they may appear in the GeoJSON file. Feature Objects
-                            are typically associated with random data.
-
+                            The data is visualised with the help of a Google Map provided by the Google Maps API. The
+                            map API pulls on the data provided by the USGS API. Using the Google Maps API, developers
+                            can create their very own Google Map and customise it to their will.
                         </p>
                     </div>
 
@@ -166,13 +167,13 @@
                         <h4>Push Data To The Map</h4>
 
                         <div class="dp">
-                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                            <img src="./external-resources/img/data.svg" alt="" srcset="">
                         </div>
 
                         <p class="card-1">
-                            A FeatureCollection object has a member with the name “features”. The value of “features” is
-                            a JSON array. Each element of the array is a Feature object as defined above. It is possible
-                            for this array to be empty.
+                            The data provided by the USGS API can be visualised with the help of the Google Maps API.
+                            The map's markers can then be customized in order to reflect the clae and magnitude of the
+                            earthquakes.
                         </p>
                     </div>
 
@@ -197,7 +198,8 @@
                 <div class="column">
                     <a href="https://developers.google.com/maps/documentation/javascript/earthquakes" class="links"
                         target="_blank">
-                        <p id="numbers" class="card-2 btn" style="text-align: center;">A Quick Guide On Visualising Data
+                        <p id="numbers" class="card-2 btn" style="text-align: center; overflow: hidden;">A Quick Guide
+                            On Visualising Data
                         </p>
                     </a>
                     <a href="https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes" class="links"
