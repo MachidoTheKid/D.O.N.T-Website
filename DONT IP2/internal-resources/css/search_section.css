@@ -39,14 +39,7 @@
     padding: .3rem;
     text-align: center;
     text-transform: uppercase;
-    background-color: rgb(30, 30, 36);
-    color: #D8D4F2;
     transition: 500ms;
-}
-
-.result:hover
-{
-    background-color: rgb(70, 70, 76);
 }
 
 .search-bar input
@@ -64,8 +57,6 @@
     padding: 1rem 3.5rem;
     letter-spacing: 0.25rem;
     border: none;
-    background: #1E1E24;
-    color: #D8D4F2;
 }
 
 .search-icon
@@ -76,7 +67,6 @@
     right: 3.2rem;
     vertical-align: middle;
     padding: .6rem;
-    background-color: #ff5714;
     border-radius: 50%;
     height: 1rem;
     width: 1rem;
@@ -87,7 +77,3 @@
     vertical-align: text-top;
 }
 
-.search-icon a
-{
-    color: #D8D4F2;
-}

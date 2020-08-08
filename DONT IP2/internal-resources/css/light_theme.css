@@ -74,6 +74,50 @@ body {
     background-color: #FF5714b3;
 }
 
+.result
+{
+    background-color: #9c9c9c;
+    -ms-background-color: #9c9c9c;
+    -moz-background-color: #9c9c9c;
+    color: #222222;
+    -ms-color: #222222;
+    -moz-color: #222222;
+}
+
+.result:hover
+{
+    background-color: #D8D4F2;
+    -ms-background-color: #D8D4F2;
+    -moz-background-color: #D8D4F2;
+    color: #222222;
+    -ms-color: #222222;
+    -moz-color: #222222;
+}
+
+.search-bar input[type = text]
+{
+    background: #9c9c9c;
+    -ms-background: #9c9c9c;
+    -moz-background: #9c9c9c;
+    color: #222222;
+    -ms-color: #222222;
+    -moz-color: #222222;
+}
+
+.search-icon
+{
+    background-color: #383838;
+    -ms-background-color: #383838;
+    -moz-background-color: #383838;
+}
+
+.search-icon a
+{
+    color: #D8D4F2;
+    -ms-color: #D8D4F2;
+    -moz-color: #D8D4F2;
+}
+
 .card-1 {
     color: #222222;
     -ms-color: #222222;
