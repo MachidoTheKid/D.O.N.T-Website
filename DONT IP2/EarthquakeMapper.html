@@ -60,42 +60,50 @@
             </div>
 
             <div class="card-column">
-                        <div class="column">
-                            <div    class="card-1">
-                                <h2>Map Results</h2>
-                                <div class="card-2">
-                                    <p id="earthquakeNumbers">
-                                        There are currently * number of confirmed cases of COVID-19 around the
-                                        world
-                                    </p>
-                                </div>
-
-                                <div class="card-2">
-                                    <p id="earthquake">
-                                        Did you know that * earthquakes happen around the world every single
-                                        day?
-                                    </p>
-                                </div>
-
-                                <div class="card-2">
-                                    <p id="weather">The weather in your country today is *</p>
-                                </div>
-                            </div>
+                <div class="column">
+                    <div class="card-1">
+                        <h2>Map Results</h2>
+                        <div class="card-2">
+                            <p id="earthquakeNumbers">
+                                There are currently * number of confirmed cases of COVID-19 around the
+                                world
+                            </p>
                         </div>
 
-                        <div class="column">
-                            <div class="card-1">
-                                <h2>Map Functionality</h2>
-                                <a href=""><div id="mag45" class="card-2 btn card-width">Filter Magnitude 4.5</div></a>
-                                <a href=""><div id="mag25" class="card-2 btn card-width">Filter Magnitude 2.5</div></a>
-                                <a href=""><div id="mag10" class="card-2 btn card-width">Filter Magnitude 1.0</div></a>
-                                <a href=""><div id="magAll" class="card-2 btn card-width">Display All Earthquakes</div></a>
-                            </div>
+                        <div class="card-2">
+                            <p id="earthquake">
+                                Did you know that * earthquakes happen around the world every single
+                                day?
+                            </p>
+                        </div>
+
+                        <div class="card-2">
+                            <p id="weather">The weather in your country today is *</p>
                         </div>
                     </div>
                 </div>
 
+                <div class="column">
+                    <div class="card-1">
+                        <h2>Map Functionality</h2>
+                        <a href="">
+                            <div id="mag45" class="card-2 btn card-width">Filter Magnitude 4.5</div>
+                        </a>
+                        <a href="">
+                            <div id="mag25" class="card-2 btn card-width">Filter Magnitude 2.5</div>
+                        </a>
+                        <a href="">
+                            <div id="mag10" class="card-2 btn card-width">Filter Magnitude 1.0</div>
+                        </a>
+                        <a href="">
+                            <div id="magAll" class="card-2 btn card-width">Display All Earthquakes</div>
+                        </a>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        </div>
         </div>
     </section>
 
@@ -166,15 +174,23 @@
             <div class="card-column">
                 <div class="column">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/hnkTi6DfVKk" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
 
                 <div class="column">
-                    <a href="https://developers.google.com/maps/documentation/javascript/earthquakes" target="_blank"><div class="card-2 btn card-width">A Quick Guide On Visualising Data</div></a>
-                    <a href="https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes" target="_blank"><div class="card-2 btn card-width">USGS Official Website</div></a>
-                    <a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank"><div class="card-2 btn card-width">Official USGS API Documentation</div></a>
-                    <a href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank"><div class="card-2 btn card-width">Official USGS GeoJSON Earthquake Summary Documentation</div></a>
+                    <a href="https://developers.google.com/maps/documentation/javascript/earthquakes" target="_blank">
+                        <div class="card-2 btn card-width">A Quick Guide On Visualising Data</div>
+                    </a>
+                    <a href="https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes" target="_blank">
+                        <div class="card-2 btn card-width">USGS Official Website</div>
+                    </a>
+                    <a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank">
+                        <div class="card-2 btn card-width">Official USGS API Documentation</div>
+                    </a>
+                    <a href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank">
+                        <div class="card-2 btn card-width">Official USGS GeoJSON Earthquake Summary Documentation</div>
+                    </a>
                 </div>
             </div>
 
@@ -207,7 +223,9 @@
     <!-- Script files and links -->
     <script src="./external-resources/js/jquery.js"></script>
     <script src="./internal-resources/js/maploader.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiDdQtqRc36itew22wJKasW_gPamhVuY&language=en&callback=initMap"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiDdQtqRc36itew22wJKasW_gPamhVuY&language=en&callback=initMap">
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="./internal-resources/js/animations.js"></script>
