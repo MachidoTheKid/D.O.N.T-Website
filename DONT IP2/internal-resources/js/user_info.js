@@ -41,7 +41,10 @@ $(document).ready(function(){
             }
         }
 
-        x.push(glblData, cntyData, [eqCount, hiMagn]);
+        const forexResponse = await fetch("http://data.fixer.io/api/latest?access_key=78e3dc8317947167988c08b3cd2d9a24");
+        const forexData = await forexResponse.json();
+
+        x.push(glblData, cntyData, [eqCount, hiMagn], forexData);
     }
 
     async function defaultCards(){
@@ -62,6 +65,21 @@ $(document).ready(function(){
                 <p>
                     Out of these at least <strong>${x[2][1].length}</strong> were considered servere, with a magnitude of more than 4.5!
                 </p>
+            </div>
+            `
+        );
+        document.querySelector(".grid-card4 .front-face").innerHTML = (
+            `<div>
+                <h3>Forex rates</h3>
+                <p>Base: EUR</p>
+                <p>To: USD</p>
+            </div>
+            `
+        );
+        document.querySelector(".grid-card4 .back-face").innerHTML = (
+            `<div>
+                <p>Cornversion Rate</p>
+                <h3>${x[3]['rates']['USD']}</h3>
             </div>
             `
         );
@@ -101,6 +119,11 @@ $(document).ready(function(){
 
             const icon = iconData[weatherIcon];
 
+            const curr = await fetch("https://restcountries.eu/rest/v2/name/" + cntryNm);
+            const currData = await curr.json();
+
+            const currCode = currData[0]['currencies'][0]['code']
+
             document.querySelector(".grid-card1 .front-face").innerHTML = (
                 `<div>
                     <p>Currently, there is a total</p>
@@ -130,6 +153,22 @@ $(document).ready(function(){
                     <small>Temp</small>
                     <p>${currentData[0]['Temperature']['Metric']['Value']}&deg;C</p>
                 </div>`
+            );
+
+            document.querySelector(".grid-card4 .front-face").innerHTML = (
+                `<div>
+                    <h3>Forex rates</h3>
+                    <p>Base: EUR</p>
+                    <p>To: ${currCode}</p>
+                </div>
+                `
+            );
+            document.querySelector(".grid-card4 .back-face").innerHTML = (
+                `<div>
+                    <p>Cornversion Rate</p>
+                    <h3>${x[3]['rates'][currCode]}</h3>
+                </div>
+                `
             );
         });
     }

@@ -238,21 +238,22 @@ nav {
     cursor: pointer;
     position: fixed;
     bottom: 2rem;
-    right: 1rem;
+    right: .5rem;
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-content: center;
-    width: .8rem;
-    height: .8rem;
-    padding: 1rem;
+    width: .6rem;
+    height: .6rem;
+    padding: .8rem;
     border-radius: 50%;
     opacity: .5;
     transition: 500ms;
 }
 
-.br-btn>i {
+.br-btn > i {
     align-self: center;
+    justify-self: center;
 }
 
 .br-btn:hover {
