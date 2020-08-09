@@ -4,9 +4,8 @@
 .header,
 .about {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-items: center;
+    align-items: center;
     text-align: center;
     padding: 0;
     margin: 0;
@@ -14,9 +13,9 @@
 }
 
 .column {
-    flex: 1;
+    display: block;
     padding: 0.8rem;
-    align-content: center;
+    justify-self: center;
 }
 
 .card-column {
@@ -36,7 +35,7 @@
 
 .card-2 {
     flex: 1;
-    align-self: center;
+    justify-self: center;
     min-width: 200px;
     max-width: 250px;
     font-size: 0.8rem;
@@ -59,6 +58,10 @@
 
 .dp img {
     width: 100%;
+}
+
+.btn{
+    text-align: center;
 }
 
 .hp-btn {

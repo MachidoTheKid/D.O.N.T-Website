@@ -88,7 +88,8 @@ body {
     -moz-color: #FF5714;
 }
 
-.btn:hover {
+.btn:hover,
+.btn > a:hover {
     color: #ffffff;
     -ms-color: #ffffff;
     -moz-color: #ffffff;

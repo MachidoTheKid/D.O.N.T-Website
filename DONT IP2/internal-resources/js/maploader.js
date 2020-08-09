@@ -1,10 +1,10 @@
 let map;
-var magSetting = 4.5;
+let magSetting = 4.5;
 
 function initMap() {
 
-    var lat = 2.8;
-    var long = -187.3
+    let lat = 2.8;
+    let long = -187.3
 
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
@@ -14,7 +14,7 @@ function initMap() {
 
 
     // Create a <script> tag and set the USGS URL as the source.
-    var script = document.createElement('script');
+    let script = document.createElement('script');
     // This example uses a local copy of the GeoJSON stored at
     // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
     script.src =
@@ -23,7 +23,6 @@ function initMap() {
 
     //Removes the script to be prevent continuous appending of data
     function removeMarkers() {
-
         document.getElementsByTagName('head')[0].removeChild(script);
     }
 
@@ -32,13 +31,13 @@ function initMap() {
     window.eqfeed_callback = function (results) {
 
 
-        for (var i = 0; i < results.features.length; i++) {
-            var largestNum = 0;
-            var coords = results.features[i].geometry.coordinates;
-            var magnitude = results.features[i].properties.mag;
-            var latLng = new google.maps.LatLng(coords[1], coords[0]);
-            var title = results.features[i].properties.title;
-            var marker = new google.maps.Marker({
+        for (let i = 0; i < results.features.length; i++) {
+            let largestNum = 0;
+            let coords = results.features[i].geometry.coordinates;
+            let magnitude = results.features[i].properties.mag;
+            let latLng = new google.maps.LatLng(coords[1], coords[0]);
+            let title = results.features[i].properties.title;
+            let marker = new google.maps.Marker({
                 position: latLng,
                 map: map,
                 infoWindow: infoWindow,
@@ -50,12 +49,10 @@ function initMap() {
                     scale: Math.pow(2, magnitude) / 2,
                     strokeColor: 'white',
                     strokeWeight: .5
-                },
-
-
+                }
             });
 
-            var contentString = '<div id="content" style="text-align: center; color: black;">' +
+            let contentString = '<div id="content" style="text-align: center; color: black;">' +
                 '<div id="siteNotice">' +
                 '</div>' +
                 '<h3 id="firstHeading" class="firstHeading" >' + 'Location: ' + '</h3>' + title +
@@ -64,7 +61,7 @@ function initMap() {
                 magnitude +
                 '</div>';
 
-            var infoWindow = new google.maps.InfoWindow({
+            let infoWindow = new google.maps.InfoWindow({
                 content: contentString
             });
 
@@ -77,49 +74,22 @@ function initMap() {
         }
 
         document.getElementById('earthquakeNumbers').innerHTML = "There are currently a total of " + "<b style='color: #FF5714;'>" + i + "</b>" + " earthquakes of at least magnitude " + "<b style='color: #FF5714;'>" + magSetting + "</b>" + " that have occured in the past week.";
-
-
     }
-
-
-
-
-
     $(".loader").fadeOut(500);
 
     //Earthquake Magnitude Button Functionality
+    document.getElementById("mag45").addEventListener("click", magChanger(4.5));
+    document.getElementById("mag25").addEventListener("click", magChanger(2.5));
+    document.getElementById("mag10").addEventListener("click", magChanger(1.0));
+    document.getElementById("magAll").addEventListener("click", magChanger("all"));
 
-    document.getElementById("mag45").addEventListener("click", magChanger45);
-    document.getElementById("mag25").addEventListener("click", magChanger25);
-    document.getElementById("mag10").addEventListener("click", magChanger10);
-
-    function magChanger45() {
+    function magChanger(mag) {
         mapReset();
-
-        magSetting = 4.5;
+        magSetting = mag;
         initMap();
-
-
-    }
-
-    function magChanger25() {
-        mapReset();
-        magSetting = 2.5;
-        initMap();
-
-
-    }
-
-    function magChanger10() {
-        mapReset();
-        magSetting = "1.0";
-        initMap();
-
-
     }
 
     function mapReset() {
-
         event.preventDefault();
         removeMarkers();
     }

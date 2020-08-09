@@ -120,7 +120,7 @@ $(document).ready(function(){
                 `<div class="dp">
                     <img src="${icon}" class="w_icon"></img>
                 </div>
-                <p style="color: #FF5714;">${currentData[0]['WeatherText']}</p>`
+                <p>${currentData[0]['WeatherText']}</p>`
             );
             
             document.querySelector(".grid-card3 .back-face").innerHTML =(

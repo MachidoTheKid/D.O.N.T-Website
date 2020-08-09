@@ -69,6 +69,12 @@ body {
     transition: 500ms;
 }
 
+.btn > a{
+    color: #222222;
+    -ms-color: #222222;
+    -moz-color: #222222;
+}
+
 .btn:hover {
     color: #ffffff;
     background-color: #FF5714b3;

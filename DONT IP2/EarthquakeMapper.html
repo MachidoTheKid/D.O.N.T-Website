@@ -7,14 +7,12 @@
     <link rel="stylesheet" type="text/css" href="internal-resources/css/layout.css">
     <link rel="stylesheet" type="text/css" href="internal-resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="internal-resources/css/dark_theme.css" id="mode">
-    <script src="./internal-resources/js/maploader.js"></script>
     <link rel="stylesheet" type="text/css" href="internal-resources/css/search_section.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="./internal-resources/js/theme.js"></script>
     <title>DONT IP2</title>
 </head>
 
-<body id="geoBody" class="mapper" onload="initMap()">
+<body id="geoBody" class="mapper">
     <!-- Page loader -->
     <div class="loader">
         <span></span>
@@ -43,7 +41,7 @@
             <div class="overlay">
                 <a href="index.html">HOMEPAGE</a>
                 <a href="GeoJson.html">GeoJSON</a>
-                <a href="EarthquakeMapper.html">EARTHQUAKE MAPPER</a>
+                <a href="#top">EARTHQUAKE MAPPER</a>
                 <a href="Weather.html">WEATHER</a>
                 <a href="Covid19.html">LEARN ABOUT COVID-19</a>
             </div>
@@ -52,76 +50,52 @@
 
     <!-- Header Section -->
     <section id="top" class="geoTop">
-        <div class="container header-page">
+        <div class="container">
             <div class="container">
                 <h1>Earthquake Mapper</h1>
             </div>
 
-            <div class="header">
-                <div class="column" id="desc">
+            <div id="map" style="width: 100%; height: 500px;">
 
-                    <div id="geojson-results">
-                        <div id="map" style="width: 100%; height: 500px;">
+            </div>
 
-                        </div>
+            <div class="card-column">
+                        <div class="column">
+                            <div    class="card-1">
+                                <h2>Map Results</h2>
+                                <div class="card-2">
+                                    <p id="earthquakeNumbers">
+                                        There are currently * number of confirmed cases of COVID-19 around the
+                                        world
+                                    </p>
+                                </div>
 
-                        <div class="header">
+                                <div class="card-2">
+                                    <p id="earthquake">
+                                        Did you know that * earthquakes happen around the world every single
+                                        day?
+                                    </p>
+                                </div>
 
-                            <div class="column">
-                                <div>
-                                    <h2>Map Results</h2>
-                                    <p id="earthquakeNumbers" class="grey-card" id="quakeInfo">There are currently *
-                                        number of
-                                        confirmed cases
-                                        of
-                                        COVID-19
-                                        around the
-                                        world</p>
-                                    <p id="earthquake" class="grey-card">Did you know that * earthquakes happen around
-                                        the world
-                                        every
-                                        single
-                                        day?</p>
-                                    <p id="weather" class="grey-card">The weather in your country today is *</p>
+                                <div class="card-2">
+                                    <p id="weather">The weather in your country today is *</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="column">
-
-
-
-                                <div class="functionality">
-                                    <h2>Map Functionality</h2>
-                                    <a href="">
-                                        <p id="mag45" class="card-2 btn" style="text-align: center;">Filter Magnitude
-                                            4.5</p>
-                                    </a>
-
-                                    <a href="">
-                                        <p id="mag25" class="card-2 btn" style="text-align: center;">Filter Magnitude
-                                            2.5</p>
-                                    </a>
-
-                                    <a href="">
-                                        <p id="mag10" class="card-2 btn" style="text-align: center;">Filter Magnitude
-                                            1.0</p>
-                                    </a>
-
-                                    <a href="">
-                                        <p id="allQuakes" class="card-2 btn" style="text-align: center;">Display All
-                                            Earthquakes
-                                        </p>
-                                    </a>
-                                </div>
-
-
+                        <div class="column">
+                            <div class="card-1">
+                                <h2>Map Functionality</h2>
+                                <a href=""><div id="mag45" class="card-2 btn">Filter Magnitude 4.5</div></a>
+                                <a href=""><div id="mag25" class="card-2 btn">Filter Magnitude 2.5</div></a>
+                                <a href=""><div id="mag10" class="card-2 btn">Filter Magnitude 1.0</div></a>
+                                <a href=""><div id="magAll" class="card-2 btn">Display All Earthquakes</div></a>
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
 
+            </div>
         </div>
     </section>
 
@@ -184,42 +158,23 @@
 
     <!-- Usefull links Section -->
     <section id="section-3">
-        <div class="container about-page">
+        <div class="container ">
             <div class="container">
                 <h2 class="subtitle">Useful Links</h2>
             </div>
 
-            <div class="about">
-
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/hnkTi6DfVKk" frameborder="0"
+            <div class="card-column">
+                <div class="column">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/hnkTi6DfVKk" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
+                </div>
 
                 <div class="column">
-                    <a href="https://developers.google.com/maps/documentation/javascript/earthquakes" class="links"
-                        target="_blank">
-                        <p id="numbers" class="card-2 btn" style="text-align: center; overflow: hidden;">A Quick Guide
-                            On Visualising Data
-                        </p>
-                    </a>
-                    <a href="https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes" class="links"
-                        target="_blank">
-                        <p id="quakes" class="card-2 btn" style="text-align: center;">USGS Official Website
-                        </p>
-                    </a>
-                    <a href="https://earthquake.usgs.gov/fdsnws/event/1/" class="links" target="_blank">
-                        <p id="weather" class="card-2 btn" style="text-align: center;">Official USGS API Documentation
-                        </p>
-                    </a>
-                    <a href="https://en.wikipedia.org/wiki/GeoJSON" class="links" target="_blank">
-                        <p id="weather" class="card-2 btn" style="text-align: center;"> Official USGS GeoJSON Earthquake
-                            Summary Documentation
-                        </p>
-                    </a>
-                    <a href="https://tools.ietf.org/html/rfc7946" class="links" target="_blank">
-                        <p id="weather" class="card-2 btn" style="text-align: center;">Official GeoJSON Documentation
-                        </p>
-                    </a>
+                    <a href="https://developers.google.com/maps/documentation/javascript/earthquakes" class="links"target="_blank"><div class="card-2 btn">A Quick Guide On Visualising Data</div></a>
+                    <a href="https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes" class="links" target="_blank"><div class="card-2 btn">USGS Official Website</div></a>
+                    <a href="https://earthquake.usgs.gov/fdsnws/event/1/" class="links" target="_blank"><div class="card-2 btn">Official USGS API Documentation</div></a>
+                    <a href="https://en.wikipedia.org/wiki/GeoJSON" class="links" target="_blank"><div class="card-2 btn">Official USGS GeoJSON Earthquake Summary Documentation</div></a>
                 </div>
             </div>
 
@@ -250,11 +205,10 @@
     </div>
 
     <!-- Script files and links -->
-
     <script src="./external-resources/js/jquery.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiDdQtqRc36itew22wJKasW_gPamhVuY&language=en">
-    </script>
+    <script src="./internal-resources/js/maploader.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiDdQtqRc36itew22wJKasW_gPamhVuY&language=en&callback=initMap"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="./internal-resources/js/animations.js"></script>
     <script src="./internal-resources/js/section_change.js"></script>
