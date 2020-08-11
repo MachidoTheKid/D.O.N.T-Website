@@ -285,7 +285,8 @@ const getForex = async () => {
         return [oData, hData, lData, cData, tmData];
     }
     catch(e){
-        console.log("An error ocured while fetching the Forex Data from the API");
+        console.log("An error ocured while fetching the Forex Data from the API: " + e);
+        return 0;
     }
 }
 
@@ -390,8 +391,10 @@ async function initMap() {
 async function covidChart() {
     try{
         let cdt = await getCovid();
+        let ctx = (document.getElementById('covidChart')).getContext('2d');
+        ctx.width = ctx.width;
+
         if(cdt.length != 0){
-            let ctx = document.getElementById('covidChart').getContext('2d');
             let myChart = new Chart(ctx, {
                 type: 'horizontalBar',
                 data: {
@@ -462,11 +465,11 @@ async function covidChart() {
 }
 
 async function forexChart() {
-
-    let cdt = await getForex();
-    //console.log(cdt)
     try{
-        let ctx = document.getElementById('forexChart').getContext('2d');
+    let cdt = await getForex();
+    let ctx = document.getElementById('forexChart').getContext('2d');
+    ctx.width = ctx.width;
+    if(cdt.length != 0){
         let myChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -534,6 +537,21 @@ async function forexChart() {
                 }
             }
         });
+    }
+    else{
+        let c = document.getElementById("covidChart");
+        let ctx = c.getContext("2d");
+
+        ctx.font = "15px Source Code Pro";
+        ctx.fillStyle = "#383838";
+        ctx.textAlign = "center";
+        ctx.fillText("Sorry, no Forex data", c.width/2, c.height/2 - 10);
+        ctx.fillText("available for this country", c.width/2, c.height/2 + 10);
+
+        ctx.globalCompositeOperation = "destination-over";
+        ctx.fillStyle = "#9C9C9CCC";
+        ctx.fillRect(0, 0, c.width, c.height);
+    }
     }
     catch(e){
         console.log("An error occured while graphing the Forex data: " + e);
