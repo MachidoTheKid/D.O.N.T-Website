@@ -113,7 +113,7 @@ const getWeather = async () =>{
     const nameArray = search.value.toLowerCase().split(",");
     //Get location Key of the capital to the country that has been searched
     try{
-        const locations = await fetch("https://dataservice.accuweather.com/locations/v1/cities/search?apikey=oS152H6tFLAwJDF1RjHnDXIKr56AtTQs&q=" + nameArray[1]);
+        const locations = await fetch("https://dataservice.accuweather.com/locations/v1/cities/search?apikey=3oOG7f0AptkQ2O9kUg08Hlvo0YD2JaA5&q=" + (nameArray[1]).trim());
         const locInfo = await locations.json();
     
 
@@ -122,11 +122,8 @@ const getWeather = async () =>{
             let locKey = locInfo[0]['Key'];
 
             //Get 5 day weather forecast from API
-            const weatherResponse = await fetch("https://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locKey + "?apikey=oS152H6tFLAwJDF1RjHnDXIKr56AtTQs&metric=true");
+            const weatherResponse = await fetch("https://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locKey + "?apikey=3oOG7f0AptkQ2O9kUg08Hlvo0YD2JaA5&metric=true");
             const weatherData = await weatherResponse.json();
-
-            let lat = locInfo[0]['GeoPosition']['Latitude'];
-            let lon = locInfo[0]['GeoPosition']['Longitude'];
 
                 ///////////////////weather data (Days)//////////////////////////////////////////////
 
@@ -141,7 +138,7 @@ const getWeather = async () =>{
                 let dayHigh = weatherData['DailyForecasts'][i]['Temperature']['Maximum']['Value'];
                 let dayDate = new Date(day);
 
-                const icons = await fetch("internal-resources/js/weather-icons.json");
+                const icons = await fetch("DONT IP2/internal-resources/js/weather-icons.json");
                 const iconData = await icons.json();
 
                 const icon = iconData[dayIcon];
@@ -158,15 +155,13 @@ const getWeather = async () =>{
                 document.getElementById('low' + (i + 1)).innerHTML = "Low: " + dayData[i][3] + "C";
                 document.getElementById('high' + (i + 1)).innerHTML = "High: " + dayData[i][4] + "C";
             }
-
-            return [lat, lon];
         }
         else{
             console.log("No weather info available at the time")
         }
     }
     catch(e){
-        console.log("Couldn't retrive location info from AccuWeather");
+        console.log("Couldn't retrive location info from AccuWeather: " + e);
     }
 }
 
@@ -300,11 +295,22 @@ const getForex = async () => {
 let map;
 var magSetting = 4.5;
 async function initMap() {
-    let wdt = await getWeather();
+
+    const nameArray = search.value.toUpperCase().split(",");
 
     try{
-        var lat = wdt[0];
-        var long = wdt[1];
+        const response = await fetch('https://restcountries.eu/rest/v2/all');
+        const countries = await response.json();
+
+
+        //Get Input matches
+        let matches = countries.filter(country => {
+            const regex = new RegExp(`^${(nameArray[2]).trim()}`, 'gi');
+            return country.name.match(regex) || country.alpha2Code.match(regex);
+        });
+
+        let lat = matches[0]['latlng'][0];
+        let long = matches[0]['latlng'][1];
 
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 3,
@@ -370,7 +376,7 @@ async function initMap() {
         }
     }
     catch(e){
-        console.log("Couldn't load map data from Google Maps");
+        console.log("Couldn't load map data from Google Maps" + e);
     }
     $(".loader").fadeOut(500);
 }
@@ -538,5 +544,6 @@ async function forexChart() {
 $("#search-btn").on('click', function () {
     initMap();
     covidChart();
+    getWeather();
     forexChart();
 });

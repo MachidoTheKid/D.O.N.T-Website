@@ -114,7 +114,7 @@ $(document).ready(function(){
 
             const weatherIcon = currentData[0]['WeatherIcon'];
 
-            const icons = await fetch("internal-resources/js/weather-icons.json");
+            const icons = await fetch("DONT IP2/internal-resources/js/weather-icons.json");
             const iconData = await icons.json();
 
             const icon = iconData[weatherIcon];
