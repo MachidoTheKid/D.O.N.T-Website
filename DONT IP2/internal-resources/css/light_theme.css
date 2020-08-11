@@ -15,7 +15,7 @@ body {
 }
 
 .loader>span {
-    background-color: #FF5714;
+    background-color: #b13b0d;
 }
 
 .logo,
@@ -40,12 +40,18 @@ body {
 
 .overlay a:hover,
 .overlay a:focus {
-    color: #FF5714;
+    color: #b13b0d;
 }
 
 /*Menu toggle icon*/
 .scroll {
     background-color: #c8c8c8b3;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    background-color: #b13b0d;
 }
 
 .change .bar1 {
@@ -77,7 +83,7 @@ body {
 
 .btn:hover {
     color: #ffffff;
-    background-color: #FF5714b3;
+    background-color: #b13b0db3;
 }
 
 .result
@@ -157,14 +163,14 @@ body {
 }
 
 .hp-btn:hover {
-    background-color: #ff5714cc;
+    background-color: #b13b0dcc;
     color: #D8D4F2;
 }
 
 .br-btn{
-    color: #FF5714;
-    -ms-color: #FF5714;
-    -moz-color: #FF5714;
+    color: #b13b0d;
+    -ms-color: #b13b0d;
+    -moz-color: #b13b0d;
     background-color: #222222;
     -ms-background-color: #222222;
     -moz-background-color: #222222;

@@ -22,15 +22,18 @@ $(document).ready(function(){
     let x = [];
 
     const getData = async ()=>{
+        //Get COVID Data from the API
         const covidResponse = await fetch('https://api.covid19api.com/summary');
         const covidData = await covidResponse.json();
         
         const glblData = covidData['Global'];
         const cntyData = covidData['Countries'];
 
+        //Get Earthquake data from the USGS API
         const eqData = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
         const f_eqData = await eqData.json();
 
+        //calculate the total number of earthquakes and the number of earthquakes magnitude 4.5+
         const eqCount = f_eqData['metadata']['count'];
         let hiMagn = [];
         for(let i = 0; i < eqCount; i++){
@@ -54,7 +57,7 @@ $(document).ready(function(){
         document.querySelector(".grid-card2 .front-face").innerHTML = (
             `<div>
                 <p>
-                    Did you know that there have been a total of <strong style="color: #FF5714;">${x[2][0]}</strong> earthquakes around the world
+                    Did you know that there have been a total of <strong style="color: #b13b0d;">${x[2][0]}</strong> earthquakes around the world
                     within the past week alone!
                 </p>
             </div>
@@ -90,13 +93,14 @@ $(document).ready(function(){
         await getData();
 
         navigator.geolocation.getCurrentPosition(async function(position){
-
+            //get the user's location information via Reverse Geocoding
             const usrData = await fetch('https://revgeocode.search.hereapi.com/v1/revgeocode?at='+ position.coords.latitude +'%2C'+ position.coords.longitude +'&lang=en-US&apikey=aBYnf2wLOm-J85_5v6FmNOYFRYKxzS5LQxLfQiD6Jk4');
             const data = await usrData.json();
 
             const cntryNm = data['items'][0]['address']['countryName'];
             const ctyNm = data['items'][0]['address']['city'];
 
+            //Filter through COVID-19 API response for data on the country that matches
             let matches = x[1].filter(country => {
                 const regex = new RegExp(`^${cntryNm}`, 'gi');
                 return country.Country.match(regex);
@@ -130,7 +134,7 @@ $(document).ready(function(){
             document.querySelector(".grid-card1 .front-face").innerHTML = (
                 `<div>
                     <p>Currently, there is a total</p>
-                    <h3 style="color: #FF5714;"><strong>${matches[0]['TotalConfirmed']}</strong></h3>
+                    <h3 style="color: #b13b0d;"><strong>${matches[0]['TotalConfirmed']}</strong></h3>
                     <p>confirmed COVID-19 cases in ${cntryNm} </p>
                 </div>`
             );
@@ -182,7 +186,7 @@ $(document).ready(function(){
         document.querySelector(".grid-card1 .front-face").innerHTML = (
             `<div>
                 <p>Currently, there is a total</p>
-                <h3 style="color: #FF5714;"><strong>${x[0]['TotalConfirmed']}</strong></h3>
+                <h3 style="color: #b13b0d;"><strong>${x[0]['TotalConfirmed']}</strong></h3>
                 <p>confirmed COVID-19 cases in the world </p>
             </div>`
         );

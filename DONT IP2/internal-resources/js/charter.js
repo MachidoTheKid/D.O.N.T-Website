@@ -62,7 +62,6 @@ if (search) {
 ///////////////////////////////////////////////////////////////
 
 //Initialization
-let dataJSON = [];
 let covidResults = []
  //Converts the input value to lowercase for uniformity
 
@@ -537,7 +536,7 @@ async function forexChart() {
         });
     }
     catch(e){
-        console.log("An error occured while graphing the Forex data");
+        console.log("An error occured while graphing the Forex data: " + e);
     }
 }
 

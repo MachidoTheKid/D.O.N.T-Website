@@ -52,6 +52,12 @@ body {
     -moz-background-color: rgba(0, 0, 0, 0.7);
 }
 
+.bar1,
+.bar2,
+.bar3 {
+    background-color: #FF5714;
+}
+
 .change .bar1 {
     background-color: #D8D4F2;
     -ms-background-color: #D8D4F2;
