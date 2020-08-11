@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="./internal-resources/css/search_section.css">
     <script src="./external-resources/js/jquery.js"></script>
     <script src="./internal-resources/js/user_info.js"></script>
-    <script src="./internal-resources/js/theme.js"></script>
     <title>DONT IP2</title>
 </head>
 
@@ -142,10 +141,10 @@
             </div>
 
             <div class="search-bar">
-                <div>
+
                     <input type="text" id="search" name="search" placeholder="Country name or code"></input>
                     <div id="search-btn" class="search-icon"><a href="#search-results"><i class="fa fa-search"></i></a></div>
-                </div>
+
                 <div id="dialogue-box"></div>
             </div>
         </div>
@@ -275,16 +274,15 @@
                 </div>
             </div>
 
-            <div id="covid-results">
+            <div>
                 <div class="container">
                     <h3>COVID-19</h3>
                 </div>
 
-                <div class="container">
-                    <div class="column">
-                        <canvas id="chart" style="width: 100%; max-height: 30rem;"></canvas>
-                    </div>
+                <div class="column">
+                    <canvas id="covidChart" style="width: 100%; max-height: 30rem;"></canvas>
                 </div>
+
             </div>
 
             <div id="weather-results">
@@ -297,74 +295,86 @@
                         <h4 id="weekday1">Monday</h4>
 
                         <div class="dp" id="icon1">
-                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                            <img src="../DONT IP2/external-resources/img/oops.png" alt="" srcset="">
                         </div>
 
                         <p class="card-1" id="low1">Low:</p>
 
                         <p class="card-1" id="high1">High:</p>
 
-                        <p style="text-align: center;" id="weatherDesc1">It's cold!</p>
+                        <p style="text-align: center;" id="weatherDesc1">Couldn't gather weather data</p>
                     </div>
 
                     <div class="card-2 card-width">
                         <h4 id="weekday2">Tuesday</h4>
 
                         <div class="dp" id="icon2">
-                            <img src="../DONT IP2/external-resources/img/dp-female.png" alt="" srcset="">
+                            <img src="../DONT IP2/external-resources/img/oops.png" alt="" srcset="">
                         </div>
 
                         <p class="card-1" id="low2">Low:</p>
 
                         <p class="card-1" id="high2">High:</p>
 
-                        <p style="text-align: center;" id="weatherDesc2">It's cold!</p>
+                        <p style="text-align: center;" id="weatherDesc2">Couldn't gather weather data</p>
                     </div>
 
                     <div class="card-2 card-width">
                         <h4 id="weekday3">Wednesday</h4>
 
                         <div class="dp" id="icon3">
-                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                            <img src="../DONT IP2/external-resources/img/oops.png" alt="" srcset="">
                         </div>
 
                         <p class="card-1" id="low3">Low:</p>
 
                         <p class="card-1" id="high3">High:</p>
 
-                        <p style="text-align: center;" id="weatherDesc3">It's cold!</p>
+                        <p style="text-align: center;" id="weatherDesc3">Couldn't gather weather data</p>
                     </div>
 
                     <div class="card-2 card-width">
                         <h4 id="weekday4">Thursday</h4>
 
                         <div class="dp" id="icon4">
-                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                            <img src="../DONT IP2/external-resources/img/oops.png" alt="" srcset="">
                         </div>
 
                         <p class="card-1" id="low4">Low:</p>
 
                         <p class="card-1" id="high4">High:</p>
 
-                        <p style="text-align: center;" id="weatherDesc4">It's cold!</p>
+                        <p style="text-align: center;" id="weatherDesc4">Couldn't gather weather data</p>
                     </div>
 
                     <div class="card-2 card-width">
                         <h4 id="weekday5">Friday</h4>
 
                         <div class="dp" id="icon5">
-                            <img src="../DONT IP2/external-resources/img/dp-male.png" alt="" srcset="">
+                            <img src="../DONT IP2/external-resources/img/oops.png" alt="" srcset="">
                         </div>
 
                         <p class="card-1" id="low5">Low:</p>
 
                         <p class="card-1" id="high5">High:</p>
 
-                        <p style="text-align: center;" id="weatherDesc5">It's cold!</p>
+                        <p style="text-align: center;" id="weatherDesc5">Couldn't gather weather data</p>
                     </div>
                 </div>
             </div>
 
+        </div>
+
+        <div class="container">
+            <div class="container">
+                <h3>FOREX</h3>
+            </div>
+
+            <div class="container">
+                <div class="column">
+                    <canvas id="forexChart" style="width: 100%; max-height: 30rem;"></canvas>
+                </div>
+            </div>
         </div>
 
         <div id="back-btn" class="br-btn" dest="#section-2">
@@ -396,11 +406,12 @@
         </div>
     </div>
 
-    <div class="br-btn" onclick="switchTheme()">
+    <div class="br-btn" id="thmIcon">
         <i id="themeIcon" class="fa fa-sun-o"></i>
     </div>
 
     <!-- Script files and links -->
+    <script src="./internal-resources/js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiDdQtqRc36itew22wJKasW_gPamhVuY&language=en">
     </script>

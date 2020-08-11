@@ -8,11 +8,12 @@
     <link rel="stylesheet" type="text/css" href="internal-resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="internal-resources/css/dark_theme.css" id="mode">
     <link rel="stylesheet" type="text/css" href="internal-resources/css/search_section.css">
+    <script src="./external-resources/js/jquery.js"></script>
     <script src="./internal-resources/js/theme.js"></script>
     <title>DONT IP2</title>
 </head>
 
-<body id="geoBody" class="mapper">
+<body>
     <!-- Page loader -->
     <div class="loader">
         <span></span>
@@ -216,17 +217,15 @@
         </div>
     </div>
 
-    <div class="br-btn" onclick="switchTheme()">
+    <div class="br-btn" id="thmIcon">
         <i id="themeIcon" class="fa fa-sun-o"></i>
     </div>
 
     <!-- Script files and links -->
-    <script src="./external-resources/js/jquery.js"></script>
     <script src="./internal-resources/js/maploader.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiDdQtqRc36itew22wJKasW_gPamhVuY&language=en&callback=initMap">
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="./internal-resources/js/animations.js"></script>
     <script src="./internal-resources/js/section_change.js"></script>

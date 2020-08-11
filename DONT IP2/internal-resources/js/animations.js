@@ -21,7 +21,7 @@ $(document).ready(function () {
             closeNav();
             $(this).data('clicked', false);
 
-            if ($(document).scrollTop() > 10) {
+            if ($(document).scrollTop() > 10 && navOpen == false) {
                 $('nav').addClass("scroll");
             }
             return;
