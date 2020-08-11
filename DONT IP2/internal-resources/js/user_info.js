@@ -103,13 +103,13 @@ $(document).ready(function(){
             });
 
             //Get location Key of the city that the user is in
-            const locations = await fetch("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=zVPYSg54sk5yXACOSMcQtQlqk8Oir6d8&q=" + ctyNm);
+            const locations = await fetch("https://dataservice.accuweather.com/locations/v1/cities/search?apikey=zVPYSg54sk5yXACOSMcQtQlqk8Oir6d8&q=" + ctyNm);
             const locInfo = await locations.json();
 
             let locKey = locInfo[0]['Key'];
 
             //Get Current Conditions from API
-            const currentResponse = await fetch("http://dataservice.accuweather.com/currentconditions/v1/" + locKey + "?apikey=zVPYSg54sk5yXACOSMcQtQlqk8Oir6d8");
+            const currentResponse = await fetch("https://dataservice.accuweather.com/currentconditions/v1/" + locKey + "?apikey=zVPYSg54sk5yXACOSMcQtQlqk8Oir6d8");
             const currentData = await currentResponse.json();
 
             const weatherIcon = currentData[0]['WeatherIcon'];
