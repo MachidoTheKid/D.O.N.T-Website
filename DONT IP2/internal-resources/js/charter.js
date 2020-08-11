@@ -12,30 +12,31 @@ const searchCountry = async searchText => {
     try{
         const response = await fetch('https://restcountries.eu/rest/v2/all');
         const countries = await response.json();
+
+
+        //Get Input matches
+        let matches = countries.filter(country => {
+            const regex = new RegExp(`^${searchText}`, 'gi');
+            return country.name.match(regex) || country.alpha2Code.match(regex);
+        });
+
+        //Checks to see if there is input in the input field and clears the drop-down dialogue if not
+        if (searchText.length === 0) {
+            matches = [];
+            matchList.innerHTML = '';
+        }
+        outputHtml(matches);
+
+        //Completes input once user clicks on the country
+        $('body').on('click', '#dialogue-box > div', function () {
+            matches = [];
+            matchList.innerHTML = '';
+            $('.search-bar input').val($(this).text().trim()).focus();
+        });
     }
     catch(e){
         console.log("Couldn't fetch Country data from REST Countries API");
     }
-
-    //Get Input matches
-    let matches = countries.filter(country => {
-        const regex = new RegExp(`^${searchText}`, 'gi');
-        return country.name.match(regex) || country.alpha2Code.match(regex);
-    });
-
-    //Checks to see if there is input in the input field and clears the drop-down dialogue if not
-    if (searchText.length === 0) {
-        matches = [];
-        matchList.innerHTML = '';
-    }
-    outputHtml(matches);
-
-    //Completes input once user clicks on the country
-    $('body').on('click', '#dialogue-box > div', function () {
-        matches = [];
-        matchList.innerHTML = '';
-        $('.search-bar input').val($(this).text().trim()).focus();
-    });
 };
 
 //Push results of filtered data to html
@@ -101,7 +102,6 @@ const getCovid = async () =>{
             covidResults.push(newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered);
             document.getElementById('countryTitle').innerHTML = countryName;
         }
-
         return matches;
     }
     catch(e){
@@ -119,7 +119,6 @@ const getWeather = async () =>{
 
 
         if(locInfo){
-            console.log(locations);
             let locKey = locInfo[0]['Key'];
 
             //Get 5 day weather forecast from API
@@ -245,14 +244,55 @@ const getForex = async () => {
     let startdate = calcStart();
     let enddate = calcEnd();
 
-    //Get forex data from API
-    const forexResponse = await fetch("https://fcsapi.com/api-v2/forex/history?symbol=EUR/USD&period=1d&from=" + enddate + "&to=" + startdate + "&access_key=DMp8zgiikH1CSk734LE2yVUBEwHFt1u3fx4Co2XRP1E7gA");
-    const forexData = await forexResponse.json();
+    try{
+        const nameArray = search.value.toLowerCase().split(",");
 
-    dataJSON.push(matches, weatherData, {latitude: lat, longitude: lon}, forexData);
-    ////////////////////covid19 Data//////////////////////////////////////////////////////
+        const response = await fetch('https://restcountries.eu/rest/v2/all');
+        const countries = await response.json();
 
-    /////////////////////////////////////////////////////////////////////////////////////
+
+        //Get Input matches
+        let currMatch = countries.filter(country => {
+            const regex = new RegExp(`^${(nameArray[2]).trim()}`, 'gi');
+            return country.alpha2Code.match(regex);
+        });
+        
+        let curr = currMatch[0]['currencies'][0]['code'];
+
+        //Get forex data from API
+        const forexResponse = await fetch("https://fcsapi.com/api-v2/forex/history?symbol=USD/" + curr + "&period=1d&from=" + enddate + "&to=" + startdate + "&access_key=DMp8zgiikH1CSk734LE2yVUBEwHFt1u3fx4Co2XRP1E7gA");
+        const forexData = await forexResponse.json();
+
+        let oData = [];
+        let hData = [];
+        let lData = [];
+        let cData = [];
+        let tmData = [];
+        for(let i = 0; i < forexData['response'].length; i++){
+            let o = forexData['response'][i]['o'];
+            oData.push(o);
+        }
+        for(let i = 0; i < forexData['response'].length; i++){
+            let h = forexData['response'][i]['h'];
+            hData.push(h);
+        }
+        for(let i = 0; i < forexData['response'].length; i++){
+            let l = forexData['response'][i]['l'];
+            lData.push(l);
+        }
+        for(let i = 0; i < forexData['response'].length; i++){
+            let c = forexData['response'][i]['c'];
+            cData.push(c);
+        }
+        for(let i = 0; i < forexData['response'].length; i++){
+            let tm = forexData['response'][i]['tm'];
+            tmData.push((tm).substr(5, 5));
+        }
+        return [oData, hData, lData, cData, tmData];
+    }
+    catch(e){
+        console.log("An error ocured while fetching the Forex Data from the API");
+    }
 }
 
 //Map initialization function
@@ -418,57 +458,81 @@ async function covidChart() {
 
 async function forexChart() {
 
-    let cdt = await getCovid();
-
-    let ctx = document.getElementById('forexChart').getContext('2d');
-    let myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Newly Confirmed', 'Total Confirmed', 'New Deaths', 'Total Deaths', 'New Recovered', 'Total Recovered'],
-            datasets: [{
-                label: 'Number of Covid-19 Cases in ' + cdt[0]['Country'],
-                data: covidResults,
-                backgroundColor: [
-                    'rgba(255, 87, 20)',
-                    'rgba(255, 87, 20)',
-                    'rgba(255, 87, 20)',
-                    'rgba(255, 87, 20)',
-                    'rgba(255, 87, 20)',
-                    'rgba(255, 87, 20)'
-                ],
-
-                borderWidth: 0
-            }]
-        },
-        options: {
-
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    },
-
-                    gridlines: {
-
-                        display: false
-                    }
+    let cdt = await getForex();
+    //console.log(cdt)
+    try{
+        let ctx = document.getElementById('forexChart').getContext('2d');
+        let myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: cdt[4],
+                datasets: [{
+                    label: "Opening Value",
+                    data: cdt[0],
+                    backgroundColor: 'rgba(255, 87, 20)',
+                    fill: false,
+                    borderWidth: 1,
+                    borderColor: '#D8D4F2b3'
+                },
+                {
+                    label: "Highest Value",
+                    data: cdt[1],
+                    backgroundColor: 'rgba(255, 87, 20)',
+                    fill: false,
+                    borderWidth: 1,
+                    borderColor: '#009c11b3'
+                },
+                {
+                    label: "Lowest Value",
+                    data: cdt[2],
+                    backgroundColor: 'rgba(255, 87, 20)',
+                    fill: false,
+                    borderWidth: 1,
+                    borderColor: '#9c2200b3'
+                },
+                {
+                    label: "Closing Value",
+                    data: cdt[3],
+                    backgroundColor: 'rgba(255, 87, 20)',
+                    fill: false,
+                    borderWidth: 1,
+                    borderColor: '#FF5714b3'
                 }],
+            },
+            options: {
 
-                xAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false,
+                            stepSize: 0.05,
+                        },
 
-                    gridLines: {
+                        gridlines: {
 
-                        display: false
-                    }
-                }],
+                            display: false
+                        }
+                    }],
+
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+
+                        gridLines: {
+
+                            display: false
+                        }
+                    }],
 
 
+                }
             }
-        }
-    });
+        });
+    }
+    catch(e){
+        console.log("An error occured while graphing the Forex data");
+    }
 }
 
 $("#search-btn").on('click', function () {

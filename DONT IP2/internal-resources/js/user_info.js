@@ -41,9 +41,9 @@ $(document).ready(function(){
             }
         }
 
-        const forexResponse = await fetch("http://data.fixer.io/api/latest?access_key=78e3dc8317947167988c08b3cd2d9a24");
+        const forexResponse = await fetch("https://fcsapi.com/api-v2/forex/latest?symbol=USD/EUR&access_key=DMp8zgiikH1CSk734LE2yVUBEwHFt1u3fx4Co2XRP1E7gA");
         const forexData = await forexResponse.json();
-
+        
         x.push(glblData, cntyData, [eqCount, hiMagn], forexData);
     }
 
@@ -71,15 +71,15 @@ $(document).ready(function(){
         document.querySelector(".grid-card4 .front-face").innerHTML = (
             `<div>
                 <h3>Forex rates</h3>
-                <p>Base: EUR</p>
-                <p>To: USD</p>
+                <p>Base: USD</p>
+                <p>To: EUR</p>
             </div>
             `
         );
         document.querySelector(".grid-card4 .back-face").innerHTML = (
             `<div>
                 <p>Cornversion Rate</p>
-                <h3>${x[3]['rates']['USD']}</h3>
+                <h3>${x[3]['response'][0]['price']}</h3>
             </div>
             `
         );
@@ -122,7 +122,10 @@ $(document).ready(function(){
             const curr = await fetch("https://restcountries.eu/rest/v2/name/" + cntryNm);
             const currData = await curr.json();
 
-            const currCode = currData[0]['currencies'][0]['code']
+            const currCode = currData[0]['currencies'][0]['code'];
+
+            const forexResponse = await fetch("https://fcsapi.com/api-v2/forex/latest?symbol=USD/" + currCode + "&access_key=DMp8zgiikH1CSk734LE2yVUBEwHFt1u3fx4Co2XRP1E7gA");
+            const forexData = await forexResponse.json();
 
             document.querySelector(".grid-card1 .front-face").innerHTML = (
                 `<div>
@@ -158,7 +161,7 @@ $(document).ready(function(){
             document.querySelector(".grid-card4 .front-face").innerHTML = (
                 `<div>
                     <h3>Forex rates</h3>
-                    <p>Base: EUR</p>
+                    <p>Base: USD</p>
                     <p>To: ${currCode}</p>
                 </div>
                 `
@@ -166,7 +169,7 @@ $(document).ready(function(){
             document.querySelector(".grid-card4 .back-face").innerHTML = (
                 `<div>
                     <p>Cornversion Rate</p>
-                    <h3>${x[3]['rates'][currCode]}</h3>
+                    <h3>${forexData['response'][0]['price']}</h3>
                 </div>
                 `
             );
