@@ -62,16 +62,14 @@
                 <div class="column">
                     <div>
                         <p class="card-1">
-                            The COVID-19 API is a free to access data source created by Kyle Redelinghuys. It currently
-                            collates all information on the current state of the COVID-19 Pandemic across each country
-                            across the globe.<br><br>
-
-                            All data collected by the COVID-19 API is sourced from John Hopkins CSSE. Currently,
-                            although the API is free to use, users are limited to a certain amount of calls per day.
-                            Exceeding the call limit will result in the user being rate limited. In other words, users
-                            won't be able to make any more requests to the api for a certain amount of time. In order to
-                            avoid this, it is possible to subscribe to the API service. Each subscription package comes
-                            with certain perks. The most basic perk is the removal of the rate limit.
+                            The Forex Crypto Stock API is an API that provides real-time exchange rate prices for 145+ world currencies. The API comes 
+                            with multiple endpoints, each serving a different response. Each response includes the latest exchange rate prices 
+                            for all currencies, historical data of single or multiple currencies and the ability to convert the price from one currency to 
+                            another.<br><br>
+                            They have an extensive documentation on how to access the API data through the different endpoints, most of which are
+                            accessible on the basic free plan. A restriction is set however to a maximum of 500 calls a month. this was sufficient for
+                            the sake of this project, but the limit can be pushed significantly to 10,000 calls a month on the cheapest plan, which
+                            costs $8 a month.
                         </p>
                     </div>
                 </div>
@@ -97,38 +95,38 @@
                         </div>
 
                         <p class="card-1">
-                            All the data for the earthquakes is gathered from the USGS (United States Geological Survey)
-                            website. The API allows the user to gather data on earthquakes based on time and magnitude.
-                            Links are provided to each GeoJSON file, which are each dedicated to a specific minimum
-                            magnitude and timeline.
+                            All the Forex data is gathered from the FCS (Forex Crypto Stock)
+                            website. The API allows the user to recieve responses with all the latest forex values for
+                            each currency, but the search can be refined based on a number of specifiable parameters
+                            such as the base curency, the period between which the data should be spaced, the duration
+                            over which the user requires data on and many more.
                         </p>
                     </div>
 
                     <div class="card-2 card-width">
-                        <h4>Initialise The Map</h4>
+                        <h4>Initialise The chart</h4>
 
                         <div class="dp">
                             <img src="./external-resources/img/chart.svg" alt="" srcset="">
                         </div>
 
                         <p class="card-1">
-                            The data is visualised with the help of a Google Map provided by the Google Maps API. The
-                            map API pulls on the data provided by the USGS API. Using the Google Maps API, developers
-                            can create their very own Google Map and customise it to their will.
+                            The data is visualised onto a HTML canvas through Javascript with the help of the Charts.js framework.
+                            the chart pulls the filtered data received from the API and plots the values accordingly. 
                         </p>
                     </div>
 
                     <div class="card-2 card-width">
-                        <h4>Push Data To The Map</h4>
+                        <h4>Visualize the data onto the graph</h4>
 
                         <div class="dp">
                             <img src="./external-resources/img/chart2.svg" alt="" srcset="">
                         </div>
 
                         <p class="card-1">
-                            The data provided by the USGS API can be visualised with the help of the Google Maps API.
-                            The map's markers can then be customized in order to reflect the clae and magnitude of the
-                            earthquakes.
+                            The data is presented in the form of a line graph displaying the opening, highest, lowest and closing values of the
+                            searched country's currency against the US dolar respectively. Each data point is presented in its own 
+                            line for ease of visibility.
                         </p>
                     </div>
 
@@ -146,23 +144,18 @@
 
             <div class="card-column">
                 <div class="column">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/bXoNcBaxfVs" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/zKeatIUww_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
                 <div class="column">
-                    <a href="https://covid19api.com/" target="_blank">
-                        <div class="card-2 btn card-width">COVID-19 API Website</div>
+                    <a href="https://fcsapi.com" target="_blank">
+                        <div class="card-2 btn card-width">Forex Crypto Stock API Website</div>
                     </a>
-                    <a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest">
+                    <a href="https://fcsapi.com/document/forex-api">
                         <div class="card-2 btn card-width">Documentation</div>
                     </a>
-                    <a href="https://covid-19-apis.postman.com/" target="_blank">
-                        <div class="card-2 btn card-width">Postman COVID-19 API Resource Center</div>
-                    </a>
-                    <a href="https://api.covid19api.com/summary" target="_blank">
-                        <div class="card-2 btn card-width">COVID-19 API Data Summary</div>
+                    <a href="https://fcsapi.com/api-v2/forex/list?type=forex&top_symbol=1&access_key=DMp8zgiikH1CSk734LE2yVUBEwHFt1u3fx4Co2XRP1E7gA" target="_blank">
+                        <div class="card-2 btn card-width">Foreign Crypto Stock List of top Countries</div>
                     </a>
                 </div>
             </div>
