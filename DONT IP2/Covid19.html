@@ -90,45 +90,52 @@
             <div>
                 <div class="card-column">
                     <div class="card-2 card-width">
-                        <h4>Acquire The Data</h4>
+                        <h4>Acquire The  COVID-19 Data</h4>
 
                         <div class="dp">
                             <img src="./external-resources/img/data.svg" alt="" srcset="">
                         </div>
 
                         <p class="card-1">
-                            All the data for the earthquakes is gathered from the USGS (United States Geological Survey)
-                            website. The API allows the user to gather data on earthquakes based on time and magnitude.
-                            Links are provided to each GeoJSON file, which are each dedicated to a specific minimum
-                            magnitude and timeline.
+                            As mentioned before, all data collected by the API is sourced from John Hopkins CSSE. At
+                            present, the API allows the user to organise the data under a certain number of formats.
+                            Data on COVID-19 is mainly divided up according to country. After that, the user can use
+                            specific JSON files to collect specific data on each country. For instance, the user can
+                            acquire data concerning infections on the first day of the pandemic, from day 1. The user
+                            can also get a general summary of infections, panning across all countries.
                         </p>
                     </div>
 
                     <div class="card-2 card-width">
-                        <h4>Initialise The Map</h4>
+                        <h4>Initialise The Chart</h4>
 
                         <div class="dp">
                             <img src="./external-resources/img/chart.svg" alt="" srcset="">
                         </div>
 
                         <p class="card-1">
-                            The data is visualised with the help of a Google Map provided by the Google Maps API. The
-                            map API pulls on the data provided by the USGS API. Using the Google Maps API, developers
-                            can create their very own Google Map and customise it to their will.
+                              In order to visualise the data, we first need something to visualise it with. An easy to use
+                            Javascript charting tool is Charts.js. It's a simple to use, lightweight solution that
+                            developers can take advantage of in order to create good looking charts with custom data.
+                            The chart can then be further customised, as there are many different available chart
+                            formats to choose from. In order to represent the COVID-19 data, a simple chart to use would
+                            be a bar chart.
                         </p>
                     </div>
 
                     <div class="card-2 card-width">
-                        <h4>Push Data To The Map</h4>
+                        <h4>Push Data To The Chart</h4>
 
                         <div class="dp">
                             <img src="./external-resources/img/chart2.svg" alt="" srcset="">
                         </div>
 
                         <p class="card-1">
-                            The data provided by the USGS API can be visualised with the help of the Google Maps API.
-                            The map's markers can then be customized in order to reflect the clae and magnitude of the
-                            earthquakes.
+                             All relevant COVID-19 Data is then pushed to a graph that the user can then interact with.
+                            The graph currently holds information on the total number of new infections found, the total
+                            number of COVID-19 related deaths, the total number of infections and so on. The chart is a
+                            bar graph that is constantly kept up to date thanks to the data provided by the COVID-19
+                            API.
                         </p>
                     </div>
 
